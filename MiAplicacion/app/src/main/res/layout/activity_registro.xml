@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="Completa todos los datos para registrarse"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="Los campos con * no son obligatorios"/>
+    </LinearLayout>
+    <EditText
+        android:id="@+id/idNombreRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese Nombre"/>
+    <EditText
+        android:id="@+id/idApellidoRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresa Apellido"/>
+    <EditText
+        android:id="@+id/idCorreoRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresa el correo"/>
+    <EditText
+        android:id="@+id/idContraseñaRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresa una contraseña"/>
+    <EditText
+        android:id="@+id/idContraseñaRepetidaRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresa de nuevo la contraseña"/>
+    <EditText
+        android:id="@+id/idCelularRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="* Ingrese numero de celular"/>
+    <EditText
+        android:id="@+id/idBarrioRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el Barrio donde recide"/>
+    <EditText
+        android:id="@+id/idCalleRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese calle"/>
+    <EditText
+        android:id="@+id/idNroCasaRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="* Ingrese numero de casa"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center">
+        <Button
+            android:id="@+id/idRegistrarseRegistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Registrarse"/>
+    </LinearLayout>
+
+</LinearLayout>
