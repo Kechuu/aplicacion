@@ -1,5 +1,7 @@
 package Modelos;
 
+import java.sql.Time;
+
 public class Publicaciones {
 
     private int idPublicaciones;
@@ -12,7 +14,15 @@ public class Publicaciones {
     private float precio;
     private int like;
     private boolean stock;
+    private Time hora;
 
+    public Time getHora() {
+        return hora;
+    }
+
+    public void setHora(Time hora) {
+        this.hora = hora;
+    }
 
     public int getIdPublicaciones() {
         return idPublicaciones;

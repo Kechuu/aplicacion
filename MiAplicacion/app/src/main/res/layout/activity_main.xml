@@ -9,10 +9,69 @@
     android:orientation="vertical"
     android:gravity="center">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="Hola mundo"
-        android:gravity="center"/>
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageButton
+                android:id="@+id/idNoticiasInicio"
+                android:layout_width="200sp"
+                android:layout_height="200sp"
+                android:src="@mipmap/ic_launcher"/>
+            <ImageButton
+                android:id="@+id/idComidaInicio"
+                android:layout_width="200sp"
+                android:layout_height="200sp"
+                android:src="@mipmap/ic_launcher"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageButton
+                android:id="@+id/idRopaInicio"
+                android:layout_width="200sp"
+                android:layout_height="200sp"
+                android:src="@mipmap/ic_launcher"/>
+            <ImageButton
+                android:id="@+id/idBebeInicio"
+                android:layout_width="200sp"
+                android:layout_height="200sp"
+                android:src="@mipmap/ic_launcher"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageButton
+                android:id="@+id/idFarmaciaInicio"
+                android:layout_width="200sp"
+                android:layout_height="200sp"
+                android:src="@mipmap/ic_launcher"/>
+            <ImageButton
+                android:id="@+id/idContactoInicio"
+                android:layout_width="200sp"
+                android:layout_height="200sp"
+                android:src="@mipmap/ic_launcher"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageButton
+                android:id="@+id/idPerfilInicio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"/>
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>
