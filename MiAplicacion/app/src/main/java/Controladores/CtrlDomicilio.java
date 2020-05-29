@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import Modelo.Domicilio;
+import Modelos.Domicilio;
 
 public class CtrlDomicilio {
     Connection cnx;
@@ -17,55 +17,49 @@ public class CtrlDomicilio {
         this.cnx = cnx;
     }
     
-    public void crear(Domicilio dmcl)
+    public void create(Domicilio dmcl)
     {
         ResultSet rs;
-        try
-        {
+        try {
             PreparedStatement stmt = cnx.prepareStatement("INSERT INTO Domicilio (idLugar, nroLote, idEdificio) VALUES (?, ?, ?)");
-            stmt.setInt(1, dmcl.getLugar().getIdLugar());
-            stmt.setString(2, dmcl.getNroLote());
-            if(dmcl.getEdificio()!=null)
-                //stmt.setInt(3, dmcl.getEdificio().getIdEdificio());
-		stmt.setInt(3, dmcl.getIdEdificio());
-            else
-                stmt.setInt(3, 0);
-           
+            stmt.setInt(1, dmcl.getIdLugar().getIdLugar());
+            stmt.setInt(2, dmcl.getNroLote());
+            stmt.setInt(3, dmcl.getIdEdificio());
+
             stmt.execute();
             rs = stmt.executeQuery("SELECT MAX(idDomicilio) AS id FROM Domicilio");
             rs.next();
             dmcl.setIdDomicilio(rs.getInt("id"));
         }
+
         catch(SQLException ex)
         {
-            JOptionPane.showMessageDialog(null, "Error al CREAR nuevo Domicilio", "ERROR!!!...", ERROR_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "Error al CREAR nuevo Domicilio", "ERROR!!!...", ERROR_MESSAGE);
         }
+
     }
     
-    public void editar(Domicilio dmcl)
+    public void edit(Domicilio dmcl)
     {
         try
         {
             PreparedStatement stmt = cnx.prepareStatement("UPDATE Domicilio SET idLugar = ?, nroLote = ?, idEdificio = ? WHERE idDomicilio = ?");
-            stmt.setInt(1, dmcl.getLugar().getIdLugar());
-            stmt.setString(2, dmcl.getNroLote());
-            if(dmcl.getEdificio()!=null)
-                //stmt.setInt(3, dmcl.getEdificio().getIdEdificio());
-		stmt.setInt(3,dmcl.getIdEdificio());
-            else
-                stmt.setInt(3, 0);
-            stmt.setInt(4, dmcl.getIdDomicilio());
+            stmt.setInt(1, dmcl.getIdLugar().getIdLugar());
+            stmt.setInt(2, dmcl.getNroLote());
+		    stmt.setInt(3,dmcl.getIdEdificio());
+
+		    stmt.setInt(4, dmcl.getIdDomicilio());
             
             stmt.execute();
         }
         catch(SQLException ex)
         {
-            JOptionPane.showMessageDialog(null, "Error al MODIFICAR Domicilio", "ERROR!!!...", ERROR_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "Error al MODIFICAR Domicilio", "ERROR!!!...", ERROR_MESSAGE);
         }
     }
 
 
-    public Domicilio leer(int id)
+    public Domicilio read(int id)
     {
         Domicilio dmcl = new Domicilio();
         ResultSet rs = null;
@@ -79,8 +73,8 @@ public class CtrlDomicilio {
             if(rs.next())
             {
                 dmcl.setIdDomicilio(id);
-                dmcl.setLugar(ctrlLugar.leer(rs.getInt("idLugar")));
-                dmcl.setNroLote(rs.getString("nroLote"));
+                dmcl.setIdLugar(ctrlLugar.read(rs.getInt("idLugar")));
+                dmcl.setNroLote(rs.getInt("NroLote"));
                 //dmcl.setidEdificio(ctrlEdificio.leer(rs.getInt("edificio")));
                 dmcl.setIdEdificio(rs.getInt("idEdificio"));
             }
@@ -89,13 +83,13 @@ public class CtrlDomicilio {
         }
         catch(SQLException ex)
         {
-            JOptionPane.showMessageDialog(null, "Error al LEER Domicilio", "ERROR!!!...", ERROR_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "Error al LEER Domicilio", "ERROR!!!...", ERROR_MESSAGE);
         }
 
         return dmcl;
     }
     
-    public Domicilio leer(int lgr, String nmr, int dfc)
+    public Domicilio read(int lgr, String nmr, int dfc)
     {
         Domicilio dmcl = new Domicilio();
         ResultSet rs = null;
@@ -112,8 +106,8 @@ public class CtrlDomicilio {
             if(rs.next())
             {
                 dmcl.setIdDomicilio(rs.getInt("idDomicilio"));
-                dmcl.setLugar(ctrlLugar.leer(rs.getInt("idLugar")));
-                dmcl.setNroLote(rs.getString("nroLote"));
+                dmcl.setIdLugar(ctrlLugar.read(rs.getInt("idLugar")));
+                dmcl.setNroLote(rs.getInt("nroLote"));
                 //dmcl.setIdEdificio(ctrlEdificio.leer(rs.getInt("edificio")));
                 dmcl.setIdEdificio(rs.getInt("idEdificio"));
             }
@@ -122,9 +116,8 @@ public class CtrlDomicilio {
         }
         catch(SQLException ex)
         {
-            JOptionPane.showMessageDialog(null, "Error al LEER Domicilio", "ERROR!!!...", ERROR_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "Error al LEER Domicilio", "ERROR!!!...", ERROR_MESSAGE);
         }
-
         return dmcl;
     }
 

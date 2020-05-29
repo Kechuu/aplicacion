@@ -7,7 +7,7 @@ public class Usuario {
     private String correo;
     private String password;
     private int jerarquia;
-
+    private boolean borrado;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -47,5 +47,13 @@ public class Usuario {
 
     public void setJerarquia(int jerarquia) {
         this.jerarquia = jerarquia;
+    }
+
+    public boolean isBorrado() {
+        return borrado;
+    }
+
+    public void setBorrado(boolean borrado) {
+        this.borrado = borrado;
     }
 }

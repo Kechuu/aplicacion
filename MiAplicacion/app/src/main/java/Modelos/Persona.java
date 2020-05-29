@@ -7,7 +7,7 @@ public class Persona {
     private String apellido;
     private String telefonoFijo;
     private String telefonoCelular;
-
+    private boolean borrado;
 
     public int getIdPersona() {
         return idPersona;
@@ -55,5 +55,13 @@ public class Persona {
 
     public void setTelefonoCelular(String telefonoCelular) {
         this.telefonoCelular = telefonoCelular;
+    }
+
+    public boolean isBorrado() {
+        return borrado;
+    }
+
+    public void setBorrado(boolean borrado) {
+        this.borrado = borrado;
     }
 }

@@ -19,74 +19,76 @@ public class CtrlEtiqueta {
     public void create(Etiqueta tqt) throws SQLException {
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO Etiqueta (etiqueta) VALUES (?)");
-            statement.setString(1,tqt.getEtiqueta());
+            statement.setString(1, tqt.getEtiqueta());
             statement.execute();
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
         connection.close();
     }
 
-    public void edit(Etiqueta tqt){
+    public void edit(Etiqueta tqt) {
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE Etiqueta SET etiqueta = ? WHERE idEtiqueta = ?");
-            statement.setString(1,tqt.getEtiqueta());
-            statement.setInt(2,tqt.getIdEtiqueta());
+            statement.setString(1, tqt.getEtiqueta());
+            statement.setInt(2, tqt.getIdEtiqueta());
 
             statement.execute();
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
     }
 
-    public Etiqueta read(int id){
-	Etiqueta tqt= new Etiqueta();
+    public Etiqueta read(int id) {
+        Etiqueta tqt = new Etiqueta();
         ResultSet rs = null;
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT idEtiqueta, etiqueta FROM Etiqueta WHERE idEtiqueta = ?");
-            statement.setInt(1,id);
+            statement.setInt(1, id);
 
-            rs=statement.executeQuery();
-            if (rs.next()){
-                ctgr.setIdEtiqueta(rs.getInt("idEtiqueta"));
-                ctgr.setEtiqueta(rs.getString("etiqueta"));
-            }else tqt=null;
-        }catch (Exception e){
+            rs = statement.executeQuery();
+            if (rs.next()) {
+                tqt.setIdEtiqueta(rs.getInt("idEtiqueta"));
+                tqt.setEtiqueta(rs.getString("etiqueta"));
+            } else tqt = null;
+        } catch (Exception e) {
 
         }
         return tqt;
     }
 
-    public Etiqueta read(String etiqueta){
+    public Etiqueta read(String etiqueta) {
         Etiqueta tqt = new Etiqueta();
         ResultSet rs = null;
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT idEtiqueta, etiqueta FROM Etiqueta WHERE etiqueta = ?");
-            statement.setString(1,etiqueta);
+            statement.setString(1, etiqueta);
 
-            rs=statement.executeQuery();
-            if (rs.next()){
+            rs = statement.executeQuery();
+            if (rs.next()) {
                 tqt.setIdEtiqueta(rs.getInt("idEtiqueta"));
                 tqt.setEtiqueta(rs.getString("etiqueta"));
-            }else tqt=null;
-        }catch (Exception e){
+            } else tqt = null;
+        } catch (Exception e) {
 
         }
         return tqt;
     }
 
-    public List<String> readAll(){
-        ResultSet rs =null;
+    public List<String> readAll() {
+        ResultSet rs = null;
         List<String> lista = new ArrayList<>();
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT etiqueta FROM Etiqueta ORDER BY etiqueta");
             rs = statement.executeQuery();
 
-            while (rs.next()){
+            while (rs.next()) {
                 lista.add(rs.getString("etiqueta"));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
         return lista;
     }
+
+}

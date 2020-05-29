@@ -5,44 +5,42 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-import Modelo.Lugar;
+import Modelos.Lugar;
 
 public class CtrlLugar{
+
+	Connection connection;
 
 	public CtrlLugar(Connection connection){
 		this.connection=connection;
 	}
 
-	public void crear(Lugar lgr){
+	public void create(Lugar lgr){
         	ResultSet rs;
         	try{
-	            PreparedStatement stmt = cnx.prepareStatement("INSERT INTO Lugar (nombre, nivel, de) VALUES (?, ?, ?)");
+	            PreparedStatement stmt = connection.prepareStatement("INSERT INTO Lugar (nombre, nivel, de) VALUES (?, ?, ?)");
         	    stmt.setString(1, lgr.getNombre());
         	    stmt.setInt(2, lgr.getNivel());
-        	    if(lgr.getDe() != null)
-        	        stmt.setInt(3, lgr.getDe().getIdLugar());
-        	    else
-        	        stmt.setInt(3, 0);
-            
+        	    stmt.setInt(3, lgr.getDe());
+
         	    stmt.execute();
         	}
         	catch(SQLException ex){
 
-	            JOptionPane.showMessageDialog(null, "Error al CREAR nuevo Lugar", "ERROR!!!...", ERROR_MESSAGE);
+	           // JOptionPane.showMessageDialog(null, "Error al CREAR nuevo Lugar", "ERROR!!!...", ERROR_MESSAGE);
 	        }
     	}
     
-    public void editar(Lugar lgr)
+    public void edit(Lugar lgr)
     {
         try
         {
-            PreparedStatement stmt = cnx.prepareStatement("UPDATE Lugar SET nombre = ?, de = ?, nivel = ? WHERE idLugar = ?");
+            PreparedStatement stmt = connection.prepareStatement("UPDATE Lugar SET nombre = ?, de = ?, nivel = ? WHERE idLugar = ?");
             stmt.setString(1, lgr.getNombre());
-            if(lgr.getDe() != null)
-                stmt.setInt(2, lgr.getDe().getIdLugar());
-            else
-                stmt.setInt(2, 0);
+            stmt.setInt(2,  lgr.getDe());
             stmt.setInt(3, lgr.getNivel());
             stmt.setInt(4, lgr.getIdLugar());
 
@@ -50,17 +48,17 @@ public class CtrlLugar{
         }
         catch(SQLException ex)
         {
-            JOptionPane.showMessageDialog(null, "Error al MODIFICAR Lugar", "ERROR!!!...", ERROR_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "Error al MODIFICAR Lugar", "ERROR!!!...", ERROR_MESSAGE);
         }
     }
 
 
-	public Lugar leer(int id){
+	public Lugar read(int id){
         Lugar lgr = new Lugar();
         ResultSet rs = null;
         try
         {
-            PreparedStatement stmt = cnx.prepareStatement("SELECT nombre, de, nivel FROM Lugar WHERE idLugar = ?");
+            PreparedStatement stmt = connection.prepareStatement("SELECT nombre, de, nivel FROM Lugar WHERE idLugar = ?");
             stmt.setInt(1, id);
 
             rs = stmt.executeQuery();
@@ -68,7 +66,7 @@ public class CtrlLugar{
             if(rs.next())
             {
                 lgr.setNombre(rs.getString("nombre"));
-                lgr.setDe(leer(rs.getInt("de")));
+                lgr.setDe(rs.getInt("de"));
                 lgr.setNivel(rs.getInt("nivel"));
                 lgr.setIdLugar(id);
             }
@@ -77,20 +75,20 @@ public class CtrlLugar{
         }
         catch(SQLException ex)
         {
-            JOptionPane.showMessageDialog(null, "Error al LEER Lugar", "ERROR!!!...", ERROR_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "Error al LEER Lugar", "ERROR!!!...", ERROR_MESSAGE);
         }
 
         return lgr;
     }
     
-    public Lugar leer(String nmbr, int nvl)
+    public Lugar read(String nmbr, int nvl)
     {
         Lugar lgr = new Lugar();
         ResultSet rs = null;
             
         try
         {
-            PreparedStatement stmt = cnx.prepareStatement("SELECT idLugar, de FROM Lugar WHERE nombre = ? AND nivel = ?");
+            PreparedStatement stmt = connection.prepareStatement("SELECT idLugar, de FROM Lugar WHERE nombre = ? AND nivel = ?");
             stmt.setString(1, nmbr);
             stmt.setInt(2, nvl);
 
@@ -99,7 +97,7 @@ public class CtrlLugar{
             if(rs.next())
             {
                 lgr.setNombre(nmbr);
-                lgr.setDe(leer(rs.getInt("de")));
+                lgr.setDe(rs.getInt("de"));
                 lgr.setNivel(nvl);
                 lgr.setIdLugar(rs.getInt("idLugar"));
             }
@@ -108,20 +106,20 @@ public class CtrlLugar{
         }
         catch(SQLException ex)
         {
-            JOptionPane.showMessageDialog(null, "Error al LEER Lugar", "ERROR!!!...", ERROR_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "Error al LEER Lugar", "ERROR!!!...", ERROR_MESSAGE);
         }
 
         return lgr;
     }
     
-    public Lugar leer(String nmbr, int nvl, int d)
+    public Lugar read(String nmbr, int nvl, int d)
     {
         Lugar lgr = new Lugar();
         ResultSet rs = null;
             
         try
         {
-            PreparedStatement stmt = cnx.prepareStatement("SELECT idLugar FROM Lugar WHERE nombre = ? AND nivel = ? AND de = ?");
+            PreparedStatement stmt = connection.prepareStatement("SELECT idLugar FROM Lugar WHERE nombre = ? AND nivel = ? AND de = ?");
             stmt.setString(1, nmbr);
             stmt.setInt(2, nvl);
             stmt.setInt(3, d);
@@ -131,7 +129,7 @@ public class CtrlLugar{
             if(rs.next())
             {
                 lgr.setNombre(nmbr);
-                lgr.setDe(leer(d));
+                lgr.setDe(read(d).getDe());
                 lgr.setNivel(nvl);
                 lgr.setIdLugar(rs.getInt("idLugar"));
             }
@@ -140,20 +138,20 @@ public class CtrlLugar{
         }
         catch(SQLException ex)
         {
-            JOptionPane.showMessageDialog(null, "Error al LEER Lugar", "ERROR!!!...", ERROR_MESSAGE);
+//            JOptionPane.showMessageDialog(null, "Error al LEER Lugar", "ERROR!!!...", ERROR_MESSAGE);
         }
 
         return lgr;
     }
 
-    public List<String> leerTodos(int nvl)
+    public List<String> readAll(int nvl)
     {
         List<String> lista = new ArrayList();
         ResultSet rs;
             
         try
         {
-            PreparedStatement stmt = cnx.prepareStatement("SELECT nombre FROM Lugar WHERE nivel = ? ORDER BY nombre");
+            PreparedStatement stmt = connection.prepareStatement("SELECT nombre FROM Lugar WHERE nivel = ? ORDER BY nombre");
             stmt.setInt(1, nvl);
 
             rs = stmt.executeQuery();
@@ -165,20 +163,20 @@ public class CtrlLugar{
         }
         catch(SQLException ex)
         {
-            JOptionPane.showMessageDialog(null, "Error al LEER Lugares", "ERROR!!!...", ERROR_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "Error al LEER Lugares", "ERROR!!!...", ERROR_MESSAGE);
         }
 
         return lista;
     }
 
-    public List<String> leerTodosDe(Lugar lgr)
+    public List<String> readAllFor(Lugar lgr)
     {
         List<String> lista = new ArrayList();
         ResultSet rs;
             
         try
         {
-            PreparedStatement stmt = cnx.prepareStatement("SELECT nombre FROM Lugar WHERE de = ?");
+            PreparedStatement stmt = connection.prepareStatement("SELECT nombre FROM Lugar WHERE de = ?");
             stmt.setInt(1, lgr.getIdLugar());
 
             rs = stmt.executeQuery();
@@ -190,7 +188,7 @@ public class CtrlLugar{
         }
         catch(SQLException ex)
         {
-            JOptionPane.showMessageDialog(null, "Error al LEER Lugares", "ERROR!!!...", ERROR_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "Error al LEER Lugares", "ERROR!!!...", ERROR_MESSAGE);
         }
 
         return lista;

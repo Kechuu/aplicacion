@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import Modelo.Foto;
+import Modelos.Foto;
 
 
 public class CtrlFoto{ 
@@ -18,7 +18,7 @@ public class CtrlFoto{
 	public void create(Foto ft) throws SQLException {
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO Foto (foto) VALUES (?)");
-            statement.setString(1,ft.getFoto());
+            statement.setBlob(1,ft.getFoto());
             statement.execute();
         }catch (Exception e){
 
@@ -29,7 +29,7 @@ public class CtrlFoto{
     public void edit(Foto ft){
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE Foto SET foto = ? WHERE idFoto = ?");
-            statement.setString(1,ft.getFoto());
+            statement.setBlob(1,ft.getFoto());
             statement.setInt(2,ft.getIdFoto());
 
             statement.execute();
