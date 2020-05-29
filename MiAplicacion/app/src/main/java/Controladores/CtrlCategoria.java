@@ -79,7 +79,7 @@ public class CtrlCategoria {
         ResultSet rs =null;
         List<String> lista = new ArrayList<>();
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT categoria FROM Categoria ORDER BY categorria");
+            PreparedStatement statement = connection.prepareStatement("SELECT categoria FROM Categoria ORDER BY categoria");
             rs = statement.executeQuery();
 
             while (rs.next()){
