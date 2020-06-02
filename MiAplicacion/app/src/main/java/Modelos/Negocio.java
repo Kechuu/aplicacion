@@ -7,7 +7,15 @@ public class Negocio {
     private Domicilio idDomicilio;
     private String nombre;
     private String Descripcion;
+    private FotoPerfil idFotoPerfil;
 
+    public FotoPerfil getIdFotoPerfil() {
+        return idFotoPerfil;
+    }
+
+    public void setIdFotoPerfil(FotoPerfil idFotoPerfil) {
+        this.idFotoPerfil = idFotoPerfil;
+    }
 
     public int getIdNegocio() {
         return idNegocio;

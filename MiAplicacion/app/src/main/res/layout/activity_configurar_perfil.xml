@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10sp"
+        android:orientation="vertical">
+        <ImageButton
+            android:id="@+id/idFotoConfigurarPerfil"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:src="@mipmap/ic_launcher"
+            android:gravity="center" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cambiar Foto de Perfil"
+            android:gravity="center"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10sp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre"/>
+            <EditText
+                android:id="@+id/idNombreConfigurarPerfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre Nuevo"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10sp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Numero de Telefono"/>
+            <EditText
+                android:id="@+id/idNroTelefonoConfigurarPerfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Numero de Telefono Nuevo"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10sp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nuevo Domicilio"/>
+            <EditText
+                android:id="@+id/idBarrioConfigurarPerfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Barrio Nuevo"/>
+            <EditText
+                android:id="@+id/idCalleConfigurarPerfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Calle Nueva"/>
+            <EditText
+                android:id="@+id/idNroCasaConfigurarPerfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Numero de Local"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+            <CheckBox
+                android:id="@+id/idMostrarDireccionConfigurarPerfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Mostrar Domicilio"/>
+            <Button
+                android:id="@+id/idBotonGuardarConfigurarPerfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Guardar Configuracion"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

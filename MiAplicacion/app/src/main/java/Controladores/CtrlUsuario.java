@@ -13,23 +13,26 @@ public class CtrlUsuario{
 
 	Connection connection;
 	CtrlPersona ctrlPersona;
+	CtrlFotoPerfil ctrlFotoPerfil;
 
 	public CtrlUsuario(Connection connection){
 
 		this.connection=connection;
 		ctrlPersona=new CtrlPersona(connection);
+		ctrlFotoPerfil = new CtrlFotoPerfil(connection);
 	}
 
 	
 	public void create(Usuario sr){
 		ResultSet rs;
 		try{
-	    	PreparedStatement stmt=connection.prepareStatement("INSERT INTO Usuario (correo, password, jerarquia, idPersona, borrado) VALUES (?, ?, ?, ?, ?)");
+	    	PreparedStatement stmt=connection.prepareStatement("INSERT INTO Usuario (correo, password, jerarquia, idPersona, borrado, idFotoPerfil) VALUES (?, ?, ?, ?, ?, ?)");
 		stmt.setString(1, sr.getCorreo());
 		stmt.setString(2, sr.getPassword());
 		stmt.setInt(3, sr.getJerarquia());
 		stmt.setInt(4, sr.getIdPersona().getIdPersona());
 		stmt.setBoolean(5, false);
+		stmt.setInt(6,sr.getIdFotoPerfil().getIdFotoPerfil());
 		
 		stmt.execute();
 
@@ -45,13 +48,14 @@ public class CtrlUsuario{
 	public void edit(Usuario sr){
 
 		try{
-		PreparedStatement stmt=connection.prepareStatement("UPDATE Usuario SET correo = ?, password = ?, jerarquia = ? WHERE idUsuario = ?");
+		PreparedStatement stmt=connection.prepareStatement("UPDATE Usuario SET correo = ?, password = ?, jerarquia = ?, idFotoPerfil WHERE idUsuario = ?");
 
 		stmt.setString(1, sr.getCorreo());
 		stmt.setString(2, sr.getPassword());
 		stmt.setInt(3, sr.getJerarquia());
+		stmt.setInt(4,sr.getIdFotoPerfil().getIdFotoPerfil());
 
-		stmt.setInt(4, sr.getIdUsuario());
+		stmt.setInt(5, sr.getIdUsuario());
 
 		stmt.execute();
 
@@ -79,6 +83,7 @@ public class CtrlUsuario{
 			sr.setJerarquia(rs.getInt("jerarquia"));
 			sr.setIdPersona(ctrlPersona.read(rs.getInt("idPersona")));
 			sr.setBorrado(rs.getBoolean("borrado"));
+			sr.setIdFotoPerfil(ctrlFotoPerfil.read(rs.getInt("idFotoPerfil")));
 		  }else{
 			sr = null;
 		  }
@@ -108,6 +113,7 @@ public class CtrlUsuario{
 			sr.setJerarquia(rs.getInt("jerarquia"));
 			sr.setIdPersona(ctrlPersona.read(rs.getInt("idPersona")));
 			sr.setBorrado(rs.getBoolean("borrado"));
+			  sr.setIdFotoPerfil(ctrlFotoPerfil.read(rs.getInt("idFotoPerfil")));
 		  }else{
 			sr = null;
 		  }

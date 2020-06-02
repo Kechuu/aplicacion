@@ -8,6 +8,15 @@ public class Usuario {
     private String password;
     private int jerarquia;
     private boolean borrado;
+    private FotoPerfil idFotoPerfil;
+
+    public FotoPerfil getIdFotoPerfil() {
+        return idFotoPerfil;
+    }
+
+    public void setIdFotoPerfil(FotoPerfil idFotoPerfil) {
+        this.idFotoPerfil = idFotoPerfil;
+    }
 
     public int getIdUsuario() {
         return idUsuario;

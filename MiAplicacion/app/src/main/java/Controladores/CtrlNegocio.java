@@ -14,22 +14,25 @@ public class CtrlNegocio{
 	Connection connection;
 	CtrlCategoria ctrlCategoria;
 	CtrlDomicilio ctrlDomicilio;
+	CtrlFotoPerfil ctrlFotoPerfil;
 
 	public CtrlNegocio(Connection connection){
 	  this.connection=connection;
 	  ctrlCategoria=new CtrlCategoria(connection);
 	  ctrlDomicilio=new CtrlDomicilio(connection);
+	  ctrlFotoPerfil=new CtrlFotoPerfil(connection);
 	}
 
 	public void create(Negocio ngc){
 		ResultSet rs;
 		try{
-		  PreparedStatement stmt=connection.prepareStatement("INSERT INTO Negocio (nombre, descripcion, idCategoria, idDomicilio, borrado) VALUES (?, ?, ?, ?, ?)");
+		  PreparedStatement stmt=connection.prepareStatement("INSERT INTO Negocio (nombre, descripcion, idCategoria, idDomicilio, borrado, idFotoPerfil) VALUES (?, ?, ?, ?, ?, ?)");
 		  stmt.setString(1, ngc.getNombre());
 		  stmt.setString(2, ngc.getDescripcion());
 		  stmt.setInt(3, ngc.getIdCategoria().getIdCategoria());
 		  stmt.setInt(4, ngc.getIdDomicilio().getIdDomicilio());
 		  stmt.setBoolean(5, false);
+		  stmt.setInt(6,ngc.getIdFotoPerfil().getIdFotoPerfil());
 
 		  stmt.execute();
 		
@@ -42,10 +45,11 @@ public class CtrlNegocio{
 	public void edit(Negocio ngc){
 
 		try{
-		  PreparedStatement stmt=connection.prepareStatement("UPDATE Negocio SET nombre =?, descripcion =?, idCategoria =?) VALUES (?, ?, ?)");
+		  PreparedStatement stmt=connection.prepareStatement("UPDATE Negocio SET nombre =?, descripcion =?, idCategoria =?, idFotoPerfil) VALUES (?, ?, ?, ?)");
 		  stmt.setString(1, ngc.getNombre());
 		  stmt.setString(2, ngc.getDescripcion());
 		  stmt.setInt(3, ngc.getIdCategoria().getIdCategoria());
+		  stmt.setInt(4,ngc.getIdFotoPerfil().getIdFotoPerfil());
 		  
 		  stmt.execute();
 		}
@@ -93,9 +97,10 @@ public class CtrlNegocio{
             if (rs.next()){
                 ng.setIdNegocio(rs.getInt("idNegocio"));
                 ng.setNombre(rs.getString("nombre"));
-		ng.setDescripcion(rs.getString("descripcion"));
-		ng.setIdCategoria(ctrlCategoria.read(rs.getInt("idCategoria")));
-		ng.setIdDomicilio(ctrlDomicilio.read(rs.getInt("idDomicilio")));
+				ng.setDescripcion(rs.getString("descripcion"));
+				ng.setIdCategoria(ctrlCategoria.read(rs.getInt("idCategoria")));
+				ng.setIdDomicilio(ctrlDomicilio.read(rs.getInt("idDomicilio")));
+				ng.setIdFotoPerfil(ctrlFotoPerfil.read(rs.getInt("idFotoPerfil")));
 		
             }else ng=null;
         }catch (Exception e){
@@ -116,9 +121,10 @@ public class CtrlNegocio{
             if (rs.next()){
                 ng.setIdNegocio(rs.getInt("idNegocio"));
                 ng.setNombre(rs.getString("nombre"));
-		ng.setDescripcion(rs.getString("descripcion"));
-		ng.setIdCategoria(ctrlCategoria.read(rs.getInt("idCategoria")));
-		ng.setIdDomicilio(ctrlDomicilio.read(rs.getInt("idDomicilio")));
+				ng.setDescripcion(rs.getString("descripcion"));
+				ng.setIdCategoria(ctrlCategoria.read(rs.getInt("idCategoria")));
+				ng.setIdDomicilio(ctrlDomicilio.read(rs.getInt("idDomicilio")));
+				ng.setIdFotoPerfil(ctrlFotoPerfil.read(rs.getInt("idFotoPerfil")));
 		
             }else ng=null;
         }catch (Exception e){
