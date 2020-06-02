@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10sp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/idNombreNegocioPerfilPersonalNegocio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre del negocio o persona"
+                android:gravity="center"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/idSeguidoresPerfilPersonalNegocio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Seguidores"
+                android:layout_gravity="center"
+                android:gravity="right"
+                android:layout_weight="1"/>
+            <ImageButton
+                android:id="@+id/idFotoPerfilPerfilPersonalNegocio"
+                android:layout_width="150sp"
+                android:layout_height="150sp"
+                android:src="@mipmap/ic_launcher"
+                android:layout_gravity="center" />
+            <TextView
+                android:id="@+id/idPublicacionesPerfilPersonalNegocio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Mensaje"
+                android:layout_gravity="center"
+                android:gravity="left"
+                android:layout_weight="1"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/idRubroPerfilPersonalNegocio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Rubro del negocio"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/idDirecionPerfilPersonalNegocio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Direccion del negocio"
+            android:gravity="center"/>
+        <Button
+            android:id="@+id/idBotonConfigurarPerfilPersonalNegocio"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Configurar Perfil"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvInicioPerfilPersonalNegocio"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+</LinearLayout>
