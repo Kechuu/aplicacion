@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    tools:ignore="UnusedNavigation"
+    app:startDestination="@id/loginActivity">
+
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.cabrerajesusk.miaplicacion.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login"/>
+    <activity
+        android:id="@+id/registroActivity"
+        android:name="com.cabrerajesusk.miaplicacion.RegistroActivity"
+        android:label="activity_registro"
+        tools:layout="@layout/activity_registro"/>
+    <activity
+        android:id="@+id/contactanosActivity"
+        android:name="com.cabrerajesusk.miaplicacion.ContactanosActivity"
+        android:label="activity_contactanos"
+        tools:layout="@layout/activity_contactanos"/>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.cabrerajesusk.miaplicacion.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main"/>
+    <activity
+        android:id="@+id/publicacionesActivity"
+        android:name="com.cabrerajesusk.miaplicacion.PublicacionesActivity"
+        android:label="activity_publicaciones"
+        tools:layout="@layout/activity_publicaciones"/>
+
+</navigation>

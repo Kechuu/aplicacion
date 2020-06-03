@@ -61,11 +61,23 @@
             android:layout_height="wrap_content"
             android:hint="Direccion del negocio"
             android:gravity="center"/>
-        <Button
-            android:id="@+id/idBotonConfigurarPerfilPersonalNegocio"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Configurar Perfil"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/idBotonConfigurarPerfilPersonalNegocio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Configurar Perfil"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/idBotonCrearPublicacionPersonalNegocio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Crear Publicacion"
+                android:layout_weight="1"/>
+        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
