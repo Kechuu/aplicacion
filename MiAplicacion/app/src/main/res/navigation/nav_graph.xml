@@ -7,30 +7,112 @@
     tools:ignore="UnusedNavigation"
     app:startDestination="@id/loginActivity">
 
-    <activity
+    <fragment
         android:id="@+id/loginActivity"
         android:name="com.cabrerajesusk.miaplicacion.LoginActivity"
         android:label="activity_login"
-        tools:layout="@layout/activity_login"/>
-    <activity
+        tools:layout="@layout/activity_login" >
+        <action
+            android:id="@+id/action_loginActivity_to_registroActivity"
+            app:destination="@id/registroActivity" />
+        <action
+            android:id="@+id/action_loginActivity_to_contactanosActivity"
+            app:destination="@id/contactanosActivity" />
+        <action
+            android:id="@+id/action_loginActivity_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <fragment
         android:id="@+id/registroActivity"
         android:name="com.cabrerajesusk.miaplicacion.RegistroActivity"
         android:label="activity_registro"
-        tools:layout="@layout/activity_registro"/>
-    <activity
+        tools:layout="@layout/activity_registro">
+        <action
+            android:id="@+id/action_registroActivity_to_loginActivity"
+            app:destination="@id/loginActivity" />
+    </fragment>
+    <fragment
         android:id="@+id/contactanosActivity"
         android:name="com.cabrerajesusk.miaplicacion.ContactanosActivity"
         android:label="activity_contactanos"
-        tools:layout="@layout/activity_contactanos"/>
-    <activity
+        tools:layout="@layout/activity_contactanos">
+        <action
+            android:id="@+id/action_contactanosActivity_to_loginActivity"
+            app:destination="@id/loginActivity" />
+    </fragment>
+    <fragment
         android:id="@+id/mainActivity"
         android:name="com.cabrerajesusk.miaplicacion.MainActivity"
         android:label="activity_main"
-        tools:layout="@layout/activity_main"/>
-    <activity
+        tools:layout="@layout/activity_main">
+        <action
+            android:id="@+id/action_mainActivity_to_publicacionesActivity"
+            app:destination="@id/publicacionesActivity" />
+        <action
+            android:id="@+id/action_mainActivity_to_perfilPersonal"
+            app:destination="@id/perfilPersonal" />
+        <action
+            android:id="@+id/action_mainActivity_to_perfilPersonalNegocioActivity"
+            app:destination="@id/perfilPersonalNegocioActivity" />
+        <action
+            android:id="@+id/action_mainActivity_to_contactos"
+            app:destination="@id/contactos" />
+        <action
+            android:id="@+id/action_mainActivity_to_farmacias"
+            app:destination="@id/farmacias" />
+    </fragment>
+    <fragment
         android:id="@+id/publicacionesActivity"
         android:name="com.cabrerajesusk.miaplicacion.PublicacionesActivity"
         android:label="activity_publicaciones"
-        tools:layout="@layout/activity_publicaciones"/>
+        tools:layout="@layout/activity_publicaciones">
+        <action
+            android:id="@+id/action_publicacionesActivity_to_perfilSeguidorActivity"
+            app:destination="@id/perfilSeguidorActivity" />
+        <action
+            android:id="@+id/action_publicacionesActivity_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/perfilPersonalNegocioActivity"
+        android:name="com.cabrerajesusk.miaplicacion.PerfilPersonalNegocioActivity"
+        android:label="activity_perfil_personal_negocio"
+        tools:layout="@layout/activity_perfil_personal_negocio">
+        <action
+            android:id="@+id/action_perfilPersonalNegocioActivity_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/perfilSeguidorActivity"
+        android:name="com.cabrerajesusk.miaplicacion.PerfilSeguidorActivity"
+        android:label="activity_perfil_seguidor"
+        tools:layout="@layout/activity_perfil_seguidor"/>
+    <fragment
+        android:id="@+id/perfilPersonal"
+        android:name="com.cabrerajesusk.miaplicacion.PerfilPersonalActivity"
+        android:label="activity_perfil_personal"
+        tools:layout="@layout/activity_perfil_personal">
+        <action
+            android:id="@+id/action_perfilPersonal_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactos"
+        android:name="com.cabrerajesusk.miaplicacion.ContactosActivity"
+        android:label="activity_contactos"
+        tools:layout="@layout/activity_contactos">
+        <action
+            android:id="@+id/action_contactos_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/farmacias"
+        android:name="com.cabrerajesusk.miaplicacion.FarmaciasActivity"
+        android:label="activity_farmacias"
+        tools:layout="@layout/activity_farmacias">
+        <action
+            android:id="@+id/action_farmacias_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
 
 </navigation>
