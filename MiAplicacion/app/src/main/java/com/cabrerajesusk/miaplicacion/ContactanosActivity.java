@@ -1,27 +1,26 @@
 package com.cabrerajesusk.miaplicacion;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class ContactanosActivity extends AppCompatActivity {
-    private Button atras;
+public class ContactanosActivity extends Fragment {
+    public ContactanosActivity() {
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contactanos);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.activity_contactanos, container, false);
+    }
 
-        atras = (Button) findViewById(R.id.idAtrasContactanos);
-
-
-        atras.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                
-            }
-        });
+    @Override
+    public void onViewCreated(View view , Bundle saveInstanceState){
+        super.onViewCreated(view,saveInstanceState);
+        //Esto se usara para navegar desde la ventana actual a las demas
+        final NavController navController = Navigation.findNavController(view);
     }
 }

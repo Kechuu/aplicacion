@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    cardview:cardCornerRadius="10sp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/idFotoPerfilPublicacionPerfilNoticia"
+                    android:layout_width="44sp"
+                    android:layout_height="44sp"
+                    android:src="@mipmap/ic_launcher"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/idNombreNoticieroPublicacionPerfilNoticia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Nombre del noticia"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5sp">
+            <ImageView
+                android:id="@+id/idFotoPublicacionPerfilNoticia"
+                android:layout_width="200sp"
+                android:layout_height="200sp"
+                android:src="@mipmap/ic_launcher_round"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageButton
+                    android:id="@+id/idMeGustaPublicacionNoticia"
+                    android:layout_width="34sp"
+                    android:layout_height="34sp"
+                    android:src="@drawable/abc_vector_test"
+                    android:padding="5sp"/>
+                <TextView
+                    android:id="@+id/idLikePublicacionNoticia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Likes"
+                    android:padding="5sp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/idDescripcionPublicacionNoticia"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Descripcion de las publicaciones"/>
+            <TextView
+                android:id="@+id/idHoraPublicacionNoticia"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Hora de la publicacion"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

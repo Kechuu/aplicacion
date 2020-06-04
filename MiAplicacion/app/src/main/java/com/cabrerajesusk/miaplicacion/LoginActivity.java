@@ -1,56 +1,26 @@
 package com.cabrerajesusk.miaplicacion;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
+import android.view.ViewGroup;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class LoginActivity extends AppCompatActivity {
-
-    ImageView imagenLogin;
-    EditText correoLogin;
-    EditText contraseñaLogin;
-    Button entrarLogin;
-    Button registrarseLogin;
-    Button contactanosLogin;
+public class LoginActivity extends Fragment {
+    public LoginActivity() {
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.activity_login, container, false);
+    }
 
-        imagenLogin = (ImageView) findViewById(R.id.idImagenLogin);
-        correoLogin = (EditText) findViewById(R.id.idCorreoLogin);
-        contraseñaLogin = (EditText) findViewById(R.id.idContraseñaLogin);
-        entrarLogin = (Button) findViewById(R.id.idEntrarLogin);
-        registrarseLogin = (Button) findViewById(R.id.idRegistrarseLogin);
-        contactanosLogin = (Button) findViewById(R.id.idContactarnosLogin);
-
-        registrarseLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,RegistroActivity.class));
-                finish();
-            }
-        });
-
-        contactanosLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,ContactanosActivity.class));
-            }
-        });
-
-        entrarLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,MainActivity.class));
-            }
-        });
+    @Override
+    public void onViewCreated(View view , Bundle saveInstanceState){
+        super.onViewCreated(view,saveInstanceState);
+        //Esto se usara para navegar desde la ventana actual a las demas
+        final NavController navController = Navigation.findNavController(view);
     }
 }

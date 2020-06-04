@@ -12,19 +12,17 @@
         android:padding="10sp"
         android:background="#20A3DD">
         <ImageButton
-            android:id="@+id/idFotoPerfilPersonal"
+            android:id="@+id/idFotoPerfilPersonalConfig"
             android:layout_width="150sp"
             android:layout_height="150sp"
             android:src="@mipmap/ic_launcher"
-            android:background="#00ffffff"
-            android:padding="5sp"/>
+            android:background="#00ffffff"/>
         <TextView
-            android:id="@+id/idNombrePerfilPersonal"
+            android:id="@+id/idNombrePerfilPersonalConfig"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Nombre de Usuario"
-            android:textColorHint="#000000"
-            android:padding="10sp"/>
+            android:textColorHint="#000000" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -54,14 +52,14 @@
             android:orientation="horizontal"
             android:gravity="center">
             <Button
-                android:id="@+id/idSeguidosPerfilPersonal"
+                android:id="@+id/idSeguidosPerfilPersonalConfig"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Seguidos"
                 android:background="#00FFFFFF"
                 android:textColorHint="#000000"/>
             <Button
-                android:id="@+id/idSeguidoresPerfilPersonal"
+                android:id="@+id/idSeguidoresPerfilPersonalConfig"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Seguidores"
@@ -72,10 +70,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
-            android:id="@+id/idDireccionPerfilPersonal"
+            android:id="@+id/idDireccionPerfilPersonalConfig"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Direccion"
+            android:textColorHint="#000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/idConfigurarPerfilPersonalConfig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:hint="Configurar"
             android:textColorHint="#000000"/>
     </LinearLayout>
 </FrameLayout>
