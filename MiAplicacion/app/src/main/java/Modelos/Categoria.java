@@ -4,6 +4,11 @@ public class Categoria {
     private int idCategoria;
     private String categoria;
 
+    public Categoria(int idCategoria, String categoria) {
+        this.idCategoria = idCategoria;
+        this.categoria = categoria;
+    }
+
     public int getIdCategoria() {
         return idCategoria;
     }

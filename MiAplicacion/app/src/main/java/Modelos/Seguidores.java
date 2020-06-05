@@ -6,6 +6,18 @@ public class Seguidores {
     private Negocio idNegocio;
     private Usuario idUsuario;
 
+    public Seguidores() {
+    }
+
+    public Seguidores(int idSeguidores, Negocio idNegocio, Usuario idUsuario) {
+        this.idSeguidores = idSeguidores;
+        this.idNegocio = idNegocio;
+        this.idUsuario = idUsuario;
+    }
+    public Seguidores(Negocio idNegocio, Usuario idUsuario) {
+        this.idNegocio = idNegocio;
+        this.idUsuario = idUsuario;
+    }
 
     public int getIdSeguidores() {
         return idSeguidores;
