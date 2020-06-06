@@ -31,11 +31,13 @@
         android:id="@+id/idCorreoLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
         android:hint="Ingrese Correo"/>
     <EditText
         android:id="@+id/idContraseñaLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPassword"
         android:hint="Ingrese la Contraseña"/>
     <Button
         android:id="@+id/idEntrarLogin"

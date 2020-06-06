@@ -33,31 +33,37 @@
             android:id="@+id/idNombreRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="text"
             android:hint="Ingrese Nombre"/>
         <EditText
             android:id="@+id/idApellidoRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="text"
             android:hint="Ingresa Apellido"/>
         <EditText
             android:id="@+id/idCorreoRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
             android:hint="Ingresa el correo"/>
         <EditText
             android:id="@+id/idContraseñaRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:hint="Ingresa una contraseña"/>
         <EditText
             android:id="@+id/idContraseñaRepetidaRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:hint="Ingresa de nuevo la contraseña"/>
         <EditText
             android:id="@+id/idCelularRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="* Ingrese numero de celular"/>
         <EditText
             android:id="@+id/idBarrioRegistro"
