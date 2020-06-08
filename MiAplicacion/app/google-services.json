@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1035829655434",
+    "firebase_url": "https://miaplicacion-3d32a.firebaseio.com",
+    "project_id": "miaplicacion-3d32a",
+    "storage_bucket": "miaplicacion-3d32a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035829655434:android:bc5dd8b9a91bfac2723a73",
+        "android_client_info": {
+          "package_name": "com.cabrerajesusk.miaplicacion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1035829655434-smot8m3ilhedlgum2bjo074jsg9l0an5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cabrerajesusk.miaplicacion",
+            "certificate_hash": "d7aa6e18906a63c0d21536d600b1f12d861d9603"
+          }
+        },
+        {
+          "client_id": "1035829655434-ds5t7l3esgp29v2v1tlg2llfesm5el42.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnJP2e_gxKdcDRAg6S_rfsLz-1IN3dBB8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1035829655434-ds5t7l3esgp29v2v1tlg2llfesm5el42.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

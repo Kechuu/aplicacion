@@ -2,36 +2,71 @@ package Modelos;
 
 public class Usuario {
 
-    private int idUsuario;
-    private Persona idPersona;
     private String correo;
-    private String password;
     private int jerarquia;
-    private boolean borrado;
-    private FotoPerfil idFotoPerfil;
+    private String nombre;
+    private String apellido;
+    private String telefonoCelular;
+    private String barrio;
+    private String calle;
+    private String nrocasa;
+    private boolean mostrar;
 
-    public FotoPerfil getIdFotoPerfil() {
-        return idFotoPerfil;
+
+    public boolean isMostrar() {
+        return mostrar;
     }
 
-    public void setIdFotoPerfil(FotoPerfil idFotoPerfil) {
-        this.idFotoPerfil = idFotoPerfil;
+    public void setMostrar(boolean mostrar) {
+        this.mostrar = mostrar;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public String getBarrio() {
+        return barrio;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setBarrio(String barrio) {
+        this.barrio = barrio;
     }
 
-    public Persona getIdPersona() {
-        return idPersona;
+    public String getCalle() {
+        return calle;
     }
 
-    public void setIdPersona(Persona idPersona) {
-        this.idPersona = idPersona;
+    public void setCalle(String calle) {
+        this.calle = calle;
+    }
+
+    public String getNrocasa() {
+        return nrocasa;
+    }
+
+    public void setNrocasa(String nrocasa) {
+        this.nrocasa = nrocasa;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getTelefonoCelular() {
+        return telefonoCelular;
+    }
+
+    public void setTelefonoCelular(String telefonoCelular) {
+        this.telefonoCelular = telefonoCelular;
     }
 
     public String getCorreo() {
@@ -42,14 +77,6 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public int getJerarquia() {
         return jerarquia;
     }
@@ -58,11 +85,4 @@ public class Usuario {
         this.jerarquia = jerarquia;
     }
 
-    public boolean isBorrado() {
-        return borrado;
-    }
-
-    public void setBorrado(boolean borrado) {
-        this.borrado = borrado;
-    }
 }
