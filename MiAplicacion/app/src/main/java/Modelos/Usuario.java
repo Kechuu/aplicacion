@@ -14,6 +14,15 @@ public class Usuario {
     private boolean mostrar;
     private String urlFoto;
     private String nombreEmpresa;
+    private String rubro;
+
+    public String getRubro() {
+        return rubro;
+    }
+
+    public void setRubro(String rubro) {
+        this.rubro = rubro;
+    }
 
     public String getNombreEmpresa() {
         return nombreEmpresa;

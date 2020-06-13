@@ -11,6 +11,11 @@
         android:gravity="center"
         android:padding="10sp"
         android:orientation="vertical">
+        <TextView
+            android:id="@+id/idNombrePersonaConfigurarPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Nombre de la persona"/>
         <ImageView
             android:id="@+id/idFotoConfigurarPerfil"
             android:layout_width="250sp"
@@ -69,7 +74,7 @@
                     android:id="@+id/idNroCasaConfigurarPerfil"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Numero de Local"/>
+                    android:hint="Numero de Casa"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"

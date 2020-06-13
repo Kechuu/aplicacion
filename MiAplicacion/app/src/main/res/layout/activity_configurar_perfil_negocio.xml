@@ -10,6 +10,11 @@
             android:gravity="center"
             android:padding="10sp"
             android:orientation="vertical">
+            <TextView
+                android:id="@+id/idNombreConfigurarPerfilNegocio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Nombre del negocio"/>
             <ImageView
                 android:id="@+id/idFotoConfigurarPerfilNegocio"
                 android:layout_width="250sp"
@@ -39,12 +44,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Descripcion"/>
+                    android:hint="Rubro"/>
                 <EditText
                     android:id="@+id/idDescripcionConfigurarPerfilNegocio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Descripcion Nuevo"/>
+                    android:hint="Modificar Rubro"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -75,16 +80,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Barrio Nuevo"/>
-                <EditText
-                    android:id="@+id/idCalleConfigurarPerfilNegocio"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Calle Nueva"/>
-                <EditText
-                    android:id="@+id/idNroCasaConfigurarPerfilNegocio"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Numero de Local"/>
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/idCalleConfigurarPerfilNegocio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Calle Nueva"
+                        android:layout_weight="1"/>
+                    <EditText
+                        android:id="@+id/idNroCasaConfigurarPerfilNegocio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Nro de Local"
+                        android:layout_weight="1"/>
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"

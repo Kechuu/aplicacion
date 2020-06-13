@@ -1,4 +1,4 @@
-package publicaciones;
+package Publicaciones;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -6,21 +6,17 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.bumptech.glide.Glide;
 import com.cabrerajesusk.miaplicacion.LoginActivity;
 import com.cabrerajesusk.miaplicacion.R;
-import com.cabrerajesusk.miaplicacion.RegistroActivity;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,13 +31,10 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
-
-import EntidadesPerfilPersonalNegocios.PerfilPersonalNegocioActivity;
 import Modelos.Publicaciones;
 import Modelos.Usuario;
 import de.hdodenhof.circleimageview.CircleImageView;

@@ -24,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import Modelos.Usuario;
-import publicaciones.CrearPublicacionActivity;
+import Publicaciones.CrearPublicacionActivity;
 
 import static com.google.firebase.auth.FirebaseAuth.getInstance;
 
@@ -75,11 +75,13 @@ public class PerfilPersonalNegocioActivity extends AppCompatActivity {
                     Usuario usuario = dataSnapshot.getValue(Usuario.class);
                     String nombnree = usuario.getNombre();
                     String foto = usuario.getUrlFoto();
+                    String rubroo = usuario.getRubro();
                     String barrio = usuario.getBarrio();
                     String calle = usuario.getCalle();
                     String nroCasa = usuario.getNrocasa();
                     boolean mostrar = usuario.isMostrar();
 
+                    rubro.setText(rubroo);
                     nombre.setText(nombnree);
                     if (mostrar == true){
                         direccion.setText(barrio+" "+calle+" N° "+nroCasa);

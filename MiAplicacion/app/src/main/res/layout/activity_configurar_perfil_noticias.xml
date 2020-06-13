@@ -10,18 +10,27 @@
             android:gravity="center"
             android:padding="10sp"
             android:orientation="vertical">
-            <ImageButton
+            <TextView
+                android:id="@+id/idNombreConfigurarPerfilNoticias"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Nombre del noticiero"/>
+            <ImageView
                 android:id="@+id/idFotoConfigurarPerfilNoticias"
-                android:layout_width="150sp"
-                android:layout_height="150sp"
+                android:layout_width="250sp"
+                android:layout_height="250sp"
                 android:src="@mipmap/ic_launcher"
                 android:gravity="center" />
-            <TextView
+            <Button
+                android:id="@+id/idCambiarFotoConfigurarPerfilNoticias"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Cambiar Foto de Perfil"
                 android:gravity="center"/>
         </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,22 +39,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="10sp">
+                android:padding="5sp">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nombre"/>
+                    android:hint="Rubro"/>
                 <EditText
-                    android:id="@+id/idNombreConfigurarPerfilNoticias"
+                    android:id="@+id/idRubroConfigurarPerfilNoticias"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nombre Nuevo"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10sp">
+                    android:hint="Modificar Rubro"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -60,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="10sp">
+                android:padding="5sp">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -70,16 +74,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Barrio Nuevo"/>
-                <EditText
-                    android:id="@+id/idCalleConfigurarPerfilNoticias"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Calle Nueva"/>
-                <EditText
-                    android:id="@+id/idNroCasaConfigurarPerfilNoticias"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Numero de Local"/>
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/idCalleConfigurarPerfilNoticias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Calle Nueva"
+                        android:layout_weight="1"/>
+                    <EditText
+                        android:id="@+id/idNroCasaConfigurarPerfilNoticias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Nro de Casa"
+                        android:layout_weight="1"/>
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -96,6 +107,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Guardar Configuracion"/>
+                <CheckBox
+                    android:id="@+id/idVerificarConfigurarPerfilNoticias"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"/>
             </LinearLayout>
         </LinearLayout>
+    </ScrollView>
     </LinearLayout>
