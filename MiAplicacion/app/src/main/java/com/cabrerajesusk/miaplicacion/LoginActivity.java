@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import static com.google.firebase.auth.FirebaseAuth.getInstance;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -27,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogear = (Button) findViewById(R.id.idEntrarLogin);
         btnRegistrarse = (Button) findViewById(R.id.idRegistrarseLogin);
         btnContactanos = (Button) findViewById(R.id.idContactarnosLogin);
-        mAuth = FirebaseAuth.getInstance();
+        mAuth = getInstance();
 
         btnLogear.setOnClickListener(v -> {
             String correo = txtCorreo.getText().toString();

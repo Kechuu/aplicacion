@@ -2,6 +2,7 @@ package Modelos;
 
 public class Usuario {
 
+    private String idUsuario;
     private String correo;
     private int jerarquia;
     private String nombre;
@@ -11,7 +12,32 @@ public class Usuario {
     private String calle;
     private String nrocasa;
     private boolean mostrar;
+    private String urlFoto;
+    private String nombreEmpresa;
 
+    public String getNombreEmpresa() {
+        return nombreEmpresa;
+    }
+
+    public void setNombreEmpresa(String nombreEmpresa) {
+        this.nombreEmpresa = nombreEmpresa;
+    }
+
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public String getUrlFoto() {
+        return urlFoto;
+    }
+
+    public void setUrlFoto(String urlFoto) {
+        this.urlFoto = urlFoto;
+    }
 
     public boolean isMostrar() {
         return mostrar;

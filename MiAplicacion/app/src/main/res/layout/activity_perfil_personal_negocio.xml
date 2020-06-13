@@ -33,7 +33,7 @@
                     android:layout_gravity="center"
                     android:gravity="right"
                     android:layout_weight="1"/>
-                <ImageButton
+                <ImageView
                     android:id="@+id/idFotoPerfilPerfilPersonalNegocio"
                     android:layout_width="150sp"
                     android:layout_height="150sp"

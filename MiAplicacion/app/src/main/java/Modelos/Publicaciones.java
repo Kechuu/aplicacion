@@ -1,67 +1,29 @@
 package Modelos;
 
-import java.sql.Time;
-
 public class Publicaciones {
 
-    private int idPublicaciones;
-    private Negocio idNegocio;
-    private Etiqueta idEtiqueta;
-    private Categoria idCategoria;
-    private Foto idFoto;
+    private String idUsuario;
+    private String nombreNegocio;
     private String titulo;
-    private String Descripcion;
-    private float precio;
-    private int like;
+    private String urlFoto;
+    private String precio;
     private boolean stock;
-    private Time hora;
+    private String descripcion;
 
-    public Time getHora() {
-        return hora;
+    public String getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setHora(Time hora) {
-        this.hora = hora;
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public int getIdPublicaciones() {
-        return idPublicaciones;
+    public String getNombreNegocio() {
+        return nombreNegocio;
     }
 
-    public void setIdPublicaciones(int idPublicaciones) {
-        this.idPublicaciones = idPublicaciones;
-    }
-
-    public Negocio getIdNegocio() {
-        return idNegocio;
-    }
-
-    public void setIdNegocio(Negocio idNegocio) {
-        this.idNegocio = idNegocio;
-    }
-
-    public Etiqueta getIdEtiqueta() {
-        return idEtiqueta;
-    }
-
-    public void setIdEtiqueta(Etiqueta idEtiqueta) {
-        this.idEtiqueta = idEtiqueta;
-    }
-
-    public Categoria getIdCategoria() {
-        return idCategoria;
-    }
-
-    public void setIdCategoria(Categoria idCategoria) {
-        this.idCategoria = idCategoria;
-    }
-
-    public Foto getIdFoto() {
-        return idFoto;
-    }
-
-    public void setIdFoto(Foto idFoto) {
-        this.idFoto = idFoto;
+    public void setNombreNegocio(String nombreNegocio) {
+        this.nombreNegocio = nombreNegocio;
     }
 
     public String getTitulo() {
@@ -72,28 +34,20 @@ public class Publicaciones {
         this.titulo = titulo;
     }
 
-    public String getDescripcion() {
-        return Descripcion;
+    public String getUrlFoto() {
+        return urlFoto;
     }
 
-    public void setDescripcion(String descripcion) {
-        Descripcion = descripcion;
+    public void setUrlFoto(String urlFoto) {
+        this.urlFoto = urlFoto;
     }
 
-    public float getPrecio() {
+    public String getPrecio() {
         return precio;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
-    }
-
-    public int getLike() {
-        return like;
-    }
-
-    public void setLike(int like) {
-        this.like = like;
     }
 
     public boolean isStock() {
@@ -103,4 +57,13 @@ public class Publicaciones {
     public void setStock(boolean stock) {
         this.stock = stock;
     }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
 }

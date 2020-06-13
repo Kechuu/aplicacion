@@ -17,25 +17,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import Modelos.Usuario;
 
+import static com.google.firebase.auth.FirebaseAuth.*;
+
 public class MainActivity extends AppCompatActivity {
 
-    /*
-    String id = mAuth.getCurrentUser().getUid();
-    Toast.makeText(MainActivity.this, id, Toast.LENGTH_SHORT).show();
-     */
     private TextView tvDias;
     private ImageButton btNoticias, btnComida, btnRopa, btnRopaBebe, btnContactos, btnFarmacias;
     private Button btnPerfil;
     private FirebaseDatabase database;
-    private String NOMBRE_USUARIO = "";
-    private String APELLIDO_USUARIO = "";
-    private String CORREO_USUARIO = "";
-    private String BARRIO_USUARIO = "";
-    private String CALLE_USUARIO = "";
-    private String NROCASA_USUARIO = "";
-    private String TELEFONO_USUARIO = "";
-    private boolean MOSTRAR_USUARIO;
     private int JERARQUIA_USUARIO=0;
+    private String ID_USUARIO="";
     private FirebaseAuth mAuth;
 
     @Override
@@ -51,52 +42,31 @@ public class MainActivity extends AppCompatActivity {
         btnContactos = (ImageButton) findViewById(R.id.idContactoInicio);
         btnFarmacias= (ImageButton) findViewById(R.id.idFarmaciaInicio);
         btnPerfil = (Button) findViewById(R.id.idPerfilInicio);
-        mAuth = FirebaseAuth.getInstance();
+        mAuth = getInstance();
         database = FirebaseDatabase.getInstance();
 
         btnPerfil.setOnClickListener(v -> {
             switch (JERARQUIA_USUARIO){
                 case 0:
                     Intent intenten = new Intent(MainActivity.this, PerfilPersonalConfigurarActivity.class);
-                    intenten.putExtra("nombre",NOMBRE_USUARIO);
-                    intenten.putExtra("apellido", APELLIDO_USUARIO);
-                    intenten.putExtra("correo", CORREO_USUARIO);
                     intenten.putExtra("jerarquia", JERARQUIA_USUARIO);
-                    intenten.putExtra("telefono", TELEFONO_USUARIO);
-                    intenten.putExtra("barrio", BARRIO_USUARIO);
-                    intenten.putExtra("calle", CALLE_USUARIO);
-                    intenten.putExtra("nroCasa", NROCASA_USUARIO);
-                    intenten.putExtra("mostrar", MOSTRAR_USUARIO);
+                    intenten.putExtra("id",ID_USUARIO);
                     startActivity(intenten);
                     break;
 
                 case 1:
 
                     Intent intenten1 = new Intent(MainActivity.this, ConfigurarPerfilNoticiasActivity.class);
-                    intenten1.putExtra("nombre",NOMBRE_USUARIO);
-                    intenten1.putExtra("apellido", APELLIDO_USUARIO);
-                    intenten1.putExtra("correo", CORREO_USUARIO);
                     intenten1.putExtra("jerarquia", JERARQUIA_USUARIO);
-                    intenten1.putExtra("telefono", TELEFONO_USUARIO);
-                    intenten1.putExtra("barrio", BARRIO_USUARIO);
-                    intenten1.putExtra("calle", CALLE_USUARIO);
-                    intenten1.putExtra("nroCasa", NROCASA_USUARIO);
-                    intenten1.putExtra("mostrar", MOSTRAR_USUARIO);
+                    intenten1.putExtra("id",ID_USUARIO);
                     startActivity(intenten1);
                     break;
 
                 case 2:
 
                     Intent intenten2 = new Intent(MainActivity.this, ConfigurarPerfilNegocioActivity.class);
-                    intenten2.putExtra("nombre",NOMBRE_USUARIO);
-                    intenten2.putExtra("apellido", APELLIDO_USUARIO);
-                    intenten2.putExtra("correo", CORREO_USUARIO);
                     intenten2.putExtra("jerarquia", JERARQUIA_USUARIO);
-                    intenten2.putExtra("telefono", TELEFONO_USUARIO);
-                    intenten2.putExtra("barrio", BARRIO_USUARIO);
-                    intenten2.putExtra("calle", CALLE_USUARIO);
-                    intenten2.putExtra("nroCasa", NROCASA_USUARIO);
-                    intenten2.putExtra("mostrar", MOSTRAR_USUARIO);
+                    intenten2.putExtra("id",ID_USUARIO);
                     startActivity(intenten2);
                     break;
                 default:
@@ -116,15 +86,8 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     Usuario usuario = dataSnapshot.getValue(Usuario.class);
-                    NOMBRE_USUARIO = usuario.getNombre();
-                    APELLIDO_USUARIO = usuario.getApellido();
                     JERARQUIA_USUARIO = usuario.getJerarquia();
-                    CORREO_USUARIO = usuario.getCorreo();
-                    TELEFONO_USUARIO = usuario.getTelefonoCelular();
-                    BARRIO_USUARIO = usuario.getBarrio();
-                    CALLE_USUARIO = usuario.getCalle();
-                    NROCASA_USUARIO = usuario.getNrocasa();
-                    MOSTRAR_USUARIO = usuario.isMostrar();
+                    ID_USUARIO = mAuth.getCurrentUser().getUid();
                 }
                 @Override
                 public void onCancelled(DatabaseError databaseError) {

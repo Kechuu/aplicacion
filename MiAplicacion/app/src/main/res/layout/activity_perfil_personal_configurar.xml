@@ -7,10 +7,10 @@
         android:gravity="center"
         android:padding="10sp"
         android:background="#20A3DD">
-        <ImageButton
+        <ImageView
             android:id="@+id/idFotoPerfilPersonalConfig"
-            android:layout_width="150sp"
-            android:layout_height="150sp"
+            android:layout_width="250sp"
+            android:layout_height="250sp"
             android:src="@mipmap/ic_launcher"
             android:background="#00ffffff"/>
         <TextView
