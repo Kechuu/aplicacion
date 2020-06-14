@@ -31,7 +31,7 @@ import static com.google.firebase.auth.FirebaseAuth.getInstance;
 
 public class PerfilPersonalNegocioActivity extends AppCompatActivity {
 
-    private TextView nombre,seguidores,publicaciones,rubro,direccion;
+    private TextView nombre,rubro,direccion;
     private ImageView fotoPerfil;
     private Button configPerfil,crearPublicacion;
     private FirebaseAuth mAuth;
@@ -43,9 +43,7 @@ public class PerfilPersonalNegocioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_perfil_personal_negocio);
 
         nombre = (TextView) findViewById(R.id.idNombreNegocioPerfilPersonalNegocio);
-        seguidores = (TextView) findViewById(R.id.idSeguidoresPerfilPersonalNegocio);
         fotoPerfil = (ImageView) findViewById(R.id.idFotoPerfilPerfilPersonalNegocio);
-        publicaciones = (TextView) findViewById(R.id.idPublicacionesPerfilPersonalNegocio);
         rubro = (TextView) findViewById(R.id.idRubroPerfilPersonalNegocio);
         direccion = (TextView) findViewById(R.id.idDirecionPerfilPersonalNegocio);
         configPerfil = (Button) findViewById(R.id.idBotonConfigurarPerfilPersonalNegocio);

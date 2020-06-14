@@ -17,13 +17,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/idFotoPerfilCrearPublicacion"
+                    android:id="@+id/idFotoPerfilCrearPublicacionRopa"
                     android:layout_width="44sp"
                     android:layout_height="44sp"
                     android:src="@mipmap/ic_launcher"/>
             </LinearLayout>
             <TextView
-                android:id="@+id/idNombreCrearPublicacion"
+                android:id="@+id/idNombreCrearPublicacionRopa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="nombre"
@@ -39,13 +39,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <EditText
-                    android:id="@+id/idTituloCrearPublicacion"
+                    android:id="@+id/idTituloCrearPublicacionRopa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Titulo de la publicacion"
                     android:layout_weight="1"/>
                 <EditText
-                    android:id="@+id/idPrecioCrearPublicacion"
+                    android:id="@+id/idPrecioCrearPublicacionRopa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Precio"
@@ -60,19 +60,19 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/idFotoCrearPublicacion"
+                    android:id="@+id/idFotoCrearPublicacionRopa"
                     android:layout_width="250sp"
                     android:layout_height="250sp"
                     android:src="@mipmap/ic_launcher" />
                 <Button
-                    android:id="@+id/idElegirFotoCrearPublicacion"
+                    android:id="@+id/idElegirFotoCrearPublicacionRopa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Elegir Foto"/>
             </LinearLayout>
 
             <EditText
-                android:id="@+id/idDescripcionCrearPublicacion"
+                android:id="@+id/idDescripcionCrearPublicacionRopa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -82,11 +82,10 @@
 
         </LinearLayout>
         <Button
-            android:id="@+id/idCrearCrearPublicacion"
+            android:id="@+id/idCrearCrearPublicacionRopa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Crear Publicacion"
             android:enabled="false"/>
     </LinearLayout>
-
 </LinearLayout>

@@ -11,11 +11,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,15 +29,12 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
-
 import Modelos.Usuario;
 import id.zelory.compressor.Compressor;
-
 import static com.google.firebase.auth.FirebaseAuth.getInstance;
 
 public class ConfigurarPerfilNegocioActivity extends AppCompatActivity {
@@ -82,7 +77,6 @@ public class ConfigurarPerfilNegocioActivity extends AppCompatActivity {
             CropImage.startPickImageActivity(ConfigurarPerfilNegocioActivity.this);
         });
 
-        if (!verificar.isSelected()){
             guardarConfiguracion.setOnClickListener(v -> {
                 cargando.setTitle("Cargando...");
                 cargando.setMessage("Guardando Cambios...");
@@ -113,7 +107,7 @@ public class ConfigurarPerfilNegocioActivity extends AppCompatActivity {
                 cargando.dismiss();
                 finish();
             });
-        }
+
     }
     @Override
     protected void onResume() {

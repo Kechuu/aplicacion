@@ -7,13 +7,12 @@
         android:gravity="center"
         android:padding="10sp"
         android:background="#20A3DD">
-        <ImageButton
+        <ImageView
             android:id="@+id/idFotoPerfilPersonal"
             android:layout_width="150sp"
             android:layout_height="150sp"
             android:src="@mipmap/ic_launcher"
-            android:background="#00ffffff"
-            android:padding="5sp"/>
+            android:padding="10sp"/>
         <TextView
             android:id="@+id/idNombrePerfilPersonal"
             android:layout_width="wrap_content"
@@ -22,55 +21,10 @@
             android:textColorHint="#000000"
             android:padding="10sp"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Seguidos"
-                android:background="#00FFFFFF"
-                android:textColorHint="#000000"
-                android:padding="10sp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Seguidores"
-                android:background="#00FFFFFF"
-                android:textColorHint="#000000"
-                android:padding="10sp"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-            <Button
-                android:id="@+id/idSeguidosPerfilPersonal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Seguidos"
-                android:background="#00FFFFFF"
-                android:textColorHint="#000000"/>
-            <Button
-                android:id="@+id/idSeguidoresPerfilPersonal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Seguidores"
-                android:background="#00FFFFFF"
-                android:textColorHint="#000000"/>
-        </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
             android:id="@+id/idDireccionPerfilPersonal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Direccion"
-            android:textColorHint="#000000"/>
+            android:textColorHint="#000000"
+            android:padding="10sp"/>
     </LinearLayout>

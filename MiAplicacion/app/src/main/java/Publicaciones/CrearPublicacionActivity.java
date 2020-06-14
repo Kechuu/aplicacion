@@ -53,11 +53,10 @@ public class CrearPublicacionActivity extends AppCompatActivity {
     private Button crearPublicacion,elegirFoto;
     private FirebaseAuth mAuth;
     private FirebaseDatabase database;
-    private String UID_USUARIO ="";
+    private String UID_USUARIO ="",URLFOTOPERFIL="";
     private Bitmap thumb_bitmap = null;
     private ProgressDialog cargando;
     private StorageReference storageReference;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -76,7 +75,7 @@ public class CrearPublicacionActivity extends AppCompatActivity {
 
         mAuth = getInstance();
         database = FirebaseDatabase.getInstance();
-        storageReference = FirebaseStorage.getInstance().getReference().child("fotosNegocios");
+        storageReference = FirebaseStorage.getInstance().getReference().child("fotosComida");
 
         elegirFoto.setOnClickListener(v -> CropImage.startPickImageActivity(CrearPublicacionActivity.this));
 
@@ -98,6 +97,7 @@ public class CrearPublicacionActivity extends AppCompatActivity {
                     nombre.setText(nombree);
                     Glide.with(CrearPublicacionActivity.this)
                             .load(foto).into(fotoPerfil);
+                    URLFOTOPERFIL =foto;
                 }
 
                 @Override
@@ -132,11 +132,12 @@ public class CrearPublicacionActivity extends AppCompatActivity {
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK){
+                crearPublicacion.setEnabled(true);
                 Uri resultUri = result.getUri();
 
                 File url = new File(resultUri.getPath());
 
-                Picasso.with(this).load(url).into(fotoPerfil);
+                Picasso.with(this).load(url).into(fotoPublicacion);
 
                 //Comprimir imagen para que no sea pesada
 
@@ -196,8 +197,9 @@ public class CrearPublicacionActivity extends AppCompatActivity {
                             publicaciones.setStock(true);
                             publicaciones.setUrlFoto(download.toString());
                             publicaciones.setIdUsuario(UID_USUARIO);
+                            publicaciones.setUrlFotoPerfil(URLFOTOPERFIL);
                             FirebaseUser currentUser = mAuth.getCurrentUser();
-                            DatabaseReference reference = database.getReference("Publicaciones/"+currentUser.getUid());
+                            DatabaseReference reference = database.getReference("PublicacionesComida/"+currentUser.getUid());
                             reference.setValue(publicaciones);
                             cargando.dismiss();
                             finish();

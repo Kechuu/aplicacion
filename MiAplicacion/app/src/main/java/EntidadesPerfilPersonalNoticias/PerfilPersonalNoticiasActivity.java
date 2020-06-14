@@ -23,14 +23,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import Modelos.Usuario;
-import Publicaciones.CrearNoticias;
+import Publicaciones.CrearNoticiasActivity;
 
 import static com.google.firebase.auth.FirebaseAuth.getInstance;
 
 
 public class PerfilPersonalNoticiasActivity extends AppCompatActivity {
 
-    private TextView nombre,seguidores,publicaciones,rubro,direccion;
+    private TextView nombre,rubro,direccion;
     private ImageView fotoPerfil;
     private Button configurarPerfil,crearPublicacion;
     private FirebaseAuth mAuth;
@@ -41,9 +41,7 @@ public class PerfilPersonalNoticiasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_perfil_personal_noticias);
 
         nombre = (TextView) findViewById(R.id.idNombreNegocioPerfilPersonalNoticias);
-        seguidores = (TextView) findViewById(R.id.idSeguidoresPerfilPersonalNoticias);
         fotoPerfil = (ImageView) findViewById(R.id.idFotoPerfilPerfilPersonalNoticias);
-        publicaciones = (TextView) findViewById(R.id.idPublicacionesPerfilPersonalNoticias);
         rubro = (TextView) findViewById(R.id.idRubroPerfilPersonalNoticias);
         direccion = (TextView) findViewById(R.id.idDirecionPerfilPersonalNoticias);
         configurarPerfil = (Button) findViewById(R.id.idBotonConfigurarPerfilPersonalNoticias);
@@ -53,7 +51,7 @@ public class PerfilPersonalNoticiasActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
 
         crearPublicacion.setOnClickListener(v -> {
-            startActivity(new Intent(PerfilPersonalNoticiasActivity.this, CrearNoticias.class));
+            startActivity(new Intent(PerfilPersonalNoticiasActivity.this, CrearNoticiasActivity.class));
         });
         configurarPerfil.setOnClickListener(v ->{
             startActivity(new Intent(PerfilPersonalNoticiasActivity.this, ConfigurarPerfilNoticiasActivity.class));
@@ -69,7 +67,7 @@ public class PerfilPersonalNoticiasActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     Usuario usuario = dataSnapshot.getValue(Usuario.class);
-                    String nombnree = usuario.getNombre();
+                    String nombnree = usuario.getNombreEmpresa();
                     String foto = usuario.getUrlFoto();
                     String rubroo = usuario.getRubro();
                     String barrio = usuario.getBarrio();

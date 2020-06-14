@@ -1,4 +1,4 @@
-package com.cabrerajesusk.miaplicacion;
+package Publicaciones;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -7,14 +7,16 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
+import com.cabrerajesusk.miaplicacion.LoginActivity;
+import com.cabrerajesusk.miaplicacion.R;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,81 +35,45 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
+import Modelos.Noticias;
 import Modelos.Usuario;
+import de.hdodenhof.circleimageview.CircleImageView;
 import id.zelory.compressor.Compressor;
+
 import static com.google.firebase.auth.FirebaseAuth.getInstance;
 
-public class ConfigurarPerfilActivity extends AppCompatActivity {
+public class CrearNoticiasActivity extends AppCompatActivity {
 
-
-    private ImageView fotoPerfil;
-    private Button cambiarFoto,guardarConfiguracion;
-    private EditText numeroTelefono,barrio,calle,nroCasa;
-    private CheckBox mostrar,verificar;
+    private CircleImageView fotoPerfil;
     private TextView nombre;
+    private ImageView fotoPublicacion;
+    private Button elegirFoto,crearPublicacion;
+    private EditText descripcion;
     private FirebaseAuth mAuth;
     private FirebaseDatabase database;
-    private String ID_USUARIO="";
+    private String UID_USUARIO ="",URLFOTOPERFIL ="";
     private Bitmap thumb_bitmap = null;
     private ProgressDialog cargando;
     private StorageReference storageReference;
-
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_configurar_perfil);
-        
-        fotoPerfil = (ImageView) findViewById(R.id.idFotoConfigurarPerfil);
-        cambiarFoto = (Button) findViewById(R.id.idCambiarFotoConfigurarPerfil);
-        numeroTelefono = (EditText) findViewById(R.id.idNroTelefonoConfigurarPerfil);
-        barrio = (EditText) findViewById(R.id.idBarrioConfigurarPerfil);
-        calle = (EditText) findViewById(R.id.idCalleConfigurarPerfil);
-        nroCasa = (EditText) findViewById(R.id.idNroCasaConfigurarPerfil);
-        mostrar = (CheckBox) findViewById(R.id.idMostrarDireccionConfigurarPerfil);
-        guardarConfiguracion = (Button) findViewById(R.id.idBotonGuardarConfigurarPerfil);
-        verificar = (CheckBox) findViewById(R.id.idVerificarConfigurarPerfil);
-        nombre = (TextView) findViewById(R.id.idNombrePersonaConfigurarPerfil);
+        setContentView(R.layout.activity_crear_noticias);
+
+        fotoPerfil = (CircleImageView) findViewById(R.id.idFotoPerfilCrearNoticias);
+        nombre = (TextView) findViewById(R.id.idNombreCrearNoticias);
+        fotoPublicacion = (ImageView) findViewById(R.id.idFotoCrearNoticias);
+        elegirFoto = (Button) findViewById(R.id.idElegirFotoCrearNoticias);
+        descripcion = (EditText) findViewById(R.id.idDescripcionCrearNoticias);
+        crearPublicacion = (Button) findViewById(R.id.idCrearCrearNoticias);
         cargando = new ProgressDialog(this);
-        storageReference = FirebaseStorage.getInstance().getReference().child("fotosPerfil");
 
         mAuth = getInstance();
         database = FirebaseDatabase.getInstance();
-
-        cambiarFoto.setOnClickListener(v -> {
-            CropImage.startPickImageActivity(ConfigurarPerfilActivity.this);
-        });
-
-            guardarConfiguracion.setOnClickListener(v -> {
-                cargando.setTitle("Cargando...");
-                cargando.setMessage("Guardando Cambios...");
-                cargando.setCancelable(false);
-                cargando.show();
-
-                String telefono = numeroTelefono.getText().toString();
-                final String barrioo = barrio.getText().toString();
-                final String callee = calle.getText().toString();
-                String nroCasaa = nroCasa.getText().toString();
-                final boolean mostrarr;
-                if (mostrar.isSelected()){
-                    mostrarr = true;
-                }else{
-                    mostrarr = false;
-                }
-                    Usuario usuarios = new Usuario();
-                    usuarios.setTelefonoCelular(telefono);
-                    usuarios.setBarrio(barrioo);
-                    usuarios.setCalle(callee);
-                    usuarios.setNrocasa(nroCasaa);
-                    usuarios.setMostrar(mostrarr);
-                    FirebaseUser currentUser = mAuth.getCurrentUser();
-                    DatabaseReference reference = database.getReference("Usuarios/"+currentUser.getUid());
-                    reference.setValue(usuarios);
-                    cargando.dismiss();
-                    finish();
-                });
+        storageReference = FirebaseStorage.getInstance().getReference().child("fotosNoticias");
 
 
+        elegirFoto.setOnClickListener(v -> CropImage.startPickImageActivity(CrearNoticiasActivity.this));
     }
 
     @Override
@@ -121,31 +87,17 @@ public class ConfigurarPerfilActivity extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     Usuario usuario = dataSnapshot.getValue(Usuario.class);
                     String foto = usuario.getUrlFoto();
-                    String nroTelefono = usuario.getTelefonoCelular();
-                    String barrioo = usuario.getBarrio();
-                    String callee = usuario.getCalle();
-                    String nroCasaa = usuario.getNrocasa();
-                    boolean mostrarr = usuario.isMostrar();
                     String nombree = usuario.getNombre();
-                    String apellido = usuario.getApellido();
-                    ID_USUARIO = mAuth.getCurrentUser().getUid();
 
-                    Glide.with(ConfigurarPerfilActivity.this)
+                    UID_USUARIO = mAuth.getCurrentUser().getUid();
+                    nombre.setText(nombree);
+                    Glide.with(CrearNoticiasActivity.this)
                             .load(foto).into(fotoPerfil);
-                    numeroTelefono.setText(nroTelefono);
-                    barrio.setText(barrioo);
-                    calle.setText(callee);
-                    nroCasa.setText(nroCasaa);
-                    nombre.setText(nombree+" "+apellido);
-
-                    if (mostrarr == true){
-                        mostrar.setSelected(true);
-                    }else{
-                        mostrar.setSelected(false);
-                    }
+                    URLFOTOPERFIL = foto;
                 }
+
                 @Override
-                public void onCancelled(DatabaseError databaseError) {
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
             });
@@ -153,8 +105,9 @@ public class ConfigurarPerfilActivity extends AppCompatActivity {
             retunrLogin();
         }
     }
+
     private void retunrLogin(){
-        startActivity(new Intent(ConfigurarPerfilActivity.this, LoginActivity.class));
+        startActivity(new Intent(CrearNoticiasActivity.this, LoginActivity.class));
         finish();
     }
 
@@ -170,19 +123,18 @@ public class ConfigurarPerfilActivity extends AppCompatActivity {
             CropImage.activity(imagenUri)
                     .setGuidelines(CropImageView.Guidelines.ON)
                     .setRequestedSize(480,480)
-                    .setAspectRatio(1,1).start(ConfigurarPerfilActivity.this);
+                    .setAspectRatio(1,1).start(CrearNoticiasActivity.this);
 
         }
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK){
-
-                verificar.setSelected(true);
+                crearPublicacion.setEnabled(true);
                 Uri resultUri = result.getUri();
 
                 File url = new File(resultUri.getPath());
 
-                Picasso.with(this).load(url).into(fotoPerfil);
+                Picasso.with(this).load(url).into(fotoPublicacion);
 
                 //Comprimir imagen para que no sea pesada
 
@@ -211,22 +163,14 @@ public class ConfigurarPerfilActivity extends AppCompatActivity {
                 final String aleatorio = elementos[p]+elementos[s]+
                         numero1+elementos[t]+elementos[c]+numero2 + "comprimido.jpg";
 
-                guardarConfiguracion.setOnClickListener(v -> {
-                    cargando.setTitle("Cargando...");
-                    cargando.setMessage("Guardando Cambios...");
+                crearPublicacion.setOnClickListener(v -> {
+                    cargando.setTitle("Subiendo...");
+                    cargando.setMessage("Cargando publicacion");
                     cargando.setCancelable(false);
                     cargando.show();
 
-                    String telefono = numeroTelefono.getText().toString();
-                    final String barrioo = barrio.getText().toString();
-                    final String callee = calle.getText().toString();
-                    String nroCasaa = nroCasa.getText().toString();
-                    final boolean mostrarr;
-                    if (mostrar.isSelected()){
-                        mostrarr = true;
-                    }else{
-                        mostrarr = false;
-                    }
+                    final String nombreNegocio = nombre.getText().toString();
+                    final String descripcionNegocio = descripcion.getText().toString();
 
                     final StorageReference ref = storageReference.child(aleatorio);
                     UploadTask uploadTask = ref.putBytes(thumb_byte);
@@ -239,23 +183,30 @@ public class ConfigurarPerfilActivity extends AppCompatActivity {
                     }).addOnCompleteListener(task -> {
                         Uri download = task.getResult();
 
-                        Usuario usuarios = new Usuario();
-                        usuarios.setTelefonoCelular(telefono);
-                        usuarios.setBarrio(barrioo);
-                        usuarios.setCalle(callee);
-                        usuarios.setNrocasa(nroCasaa);
-                        usuarios.setMostrar(mostrarr);
-                        usuarios.setUrlFoto(download.toString());
-                        FirebaseUser currentUser = mAuth.getCurrentUser();
-                        DatabaseReference reference = database.getReference("Usuarios/"+currentUser.getUid());
-                        reference.setValue(usuarios);
-                        cargando.dismiss();
-                        finish();
+                        if (validar(nombreNegocio,descripcionNegocio)){
+                            Noticias noticias = new Noticias();
+                            noticias.setNombreNoticiero(nombreNegocio);
+                            noticias.setDescripcion(descripcionNegocio);
+                            noticias.setUrlFoto(download.toString());
+                            noticias.setIdUsuario(UID_USUARIO);
+                            noticias.setUrlFotoPerfil(URLFOTOPERFIL);
+                            FirebaseUser currentUser = mAuth.getCurrentUser();
+                            DatabaseReference reference = database.getReference("PublicacionesNoticias/"+currentUser.getUid());
+                            reference.setValue(noticias);
+                            cargando.dismiss();
+                            finish();
+                        }else{
+                            Toast.makeText(CrearNoticiasActivity.this, "Falta Completar Campos", Toast.LENGTH_SHORT).show();
+                        }
+
                     });
 
                 });
 
             }
         }
+    }
+    public boolean validar(String nombre,String barrio){
+        return !nombre.isEmpty() && !barrio.isEmpty();
     }
 }

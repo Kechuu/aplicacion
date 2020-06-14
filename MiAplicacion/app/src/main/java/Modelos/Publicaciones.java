@@ -1,22 +1,15 @@
 package Modelos;
 
 public class Publicaciones {
-
-    private String idUsuario;
     private String nombreNegocio;
     private String titulo;
-    private String urlFoto;
     private String precio;
-    private boolean stock;
     private String descripcion;
-
-    public String getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(String idUsuario) {
-        this.idUsuario = idUsuario;
-    }
+    private boolean stock;
+    private String urlFoto;
+    private String idUsuario;
+    private String urlFotoPerfil;
+    private int jerarquia;
 
     public String getNombreNegocio() {
         return nombreNegocio;
@@ -34,28 +27,12 @@ public class Publicaciones {
         this.titulo = titulo;
     }
 
-    public String getUrlFoto() {
-        return urlFoto;
-    }
-
-    public void setUrlFoto(String urlFoto) {
-        this.urlFoto = urlFoto;
-    }
-
     public String getPrecio() {
         return precio;
     }
 
     public void setPrecio(String precio) {
         this.precio = precio;
-    }
-
-    public boolean isStock() {
-        return stock;
-    }
-
-    public void setStock(boolean stock) {
-        this.stock = stock;
     }
 
     public String getDescripcion() {
@@ -66,4 +43,35 @@ public class Publicaciones {
         this.descripcion = descripcion;
     }
 
+    public boolean isStock() {
+        return stock;
+    }
+
+    public void setStock(boolean stock) {
+        this.stock = stock;
+    }
+
+    public String getUrlFoto() {
+        return urlFoto;
+    }
+
+    public void setUrlFoto(String urlFoto) {
+        this.urlFoto = urlFoto;
+    }
+
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public String getUrlFotoPerfil() {
+        return urlFotoPerfil;
+    }
+
+    public void setUrlFotoPerfil(String urlFotoPerfil) {
+        this.urlFotoPerfil = urlFotoPerfil;
+    }
 }

@@ -26,15 +26,12 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
-
 import Modelos.Usuario;
 import id.zelory.compressor.Compressor;
-
 import static com.google.firebase.auth.FirebaseAuth.getInstance;
 
 public class RegistroActivity extends AppCompatActivity {
@@ -70,10 +67,8 @@ public class RegistroActivity extends AppCompatActivity {
         txtCalle = (EditText)findViewById(R.id.idCalleRegistro);
         txtNroCasa = (EditText)findViewById(R.id.idNroCasaRegistro);
         cbxMostrar = (CheckBox) findViewById(R.id.idMostrarDireccionRegistro);
-
         fotoPerfil = (Button) findViewById(R.id.idFotoPErfilRegistros);
         foto = (ImageView) findViewById(R.id.idFotoRegistro);
-
         btnRegistrar = (Button) findViewById(R.id.idRegistrarseRegistro);
 
         fotoPerfil.setOnClickListener(v -> {
@@ -123,6 +118,7 @@ public class RegistroActivity extends AppCompatActivity {
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK){
+                btnRegistrar.setEnabled(true);
                 Uri resultUri = result.getUri();
 
                 File url = new File(resultUri.getPath());

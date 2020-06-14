@@ -99,7 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="* Ingrese numero de celular"/>
+                android:hint="Ingrese numero de celular"/>
             <EditText
                 android:id="@+id/idBarrioRegistro"
                 android:layout_width="match_parent"
@@ -137,7 +137,8 @@
                     android:id="@+id/idRegistrarseRegistro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Registrarse"/>
+                    android:hint="Registrarse"
+                    android:enabled="false"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
