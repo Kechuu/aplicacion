@@ -6,11 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.bumptech.glide.Glide;
 import com.cabrerajesusk.miaplicacion.ConfigurarPerfilNoticiasActivity;
 import com.cabrerajesusk.miaplicacion.LoginActivity;
@@ -35,6 +33,9 @@ public class PerfilPersonalNoticiasActivity extends AppCompatActivity {
     private Button configurarPerfil,crearPublicacion;
     private FirebaseAuth mAuth;
     private FirebaseDatabase database;
+    private String idUsuarioo,correoo,nombree,apellidoo, telefonoCelularr,barrioo,callee,nrocasaa,urlFotoo,nombreEmpresaa,rubroo;
+    private int jerarquiaa;
+    private boolean mostrarr;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,25 +68,31 @@ public class PerfilPersonalNoticiasActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     Usuario usuario = dataSnapshot.getValue(Usuario.class);
-                    String nombnree = usuario.getNombreEmpresa();
-                    String foto = usuario.getUrlFoto();
-                    String rubroo = usuario.getRubro();
-                    String barrio = usuario.getBarrio();
-                    String calle = usuario.getCalle();
-                    String nroCasa = usuario.getNrocasa();
-                    boolean mostrar = usuario.isMostrar();
+                    idUsuarioo = mAuth.getCurrentUser().getUid();
+                    correoo = usuario.getCorreo();
+                    jerarquiaa = usuario.getJerarquia();
+                    nombree = usuario.getNombreEmpresa();
+                    apellidoo = usuario.getApellido();
+                    telefonoCelularr = usuario.getTelefonoCelular();
+                    urlFotoo = usuario.getUrlFoto();
+                    rubroo = usuario.getRubro();
+                    barrioo = usuario.getBarrio();
+                    callee = usuario.getCalle();
+                    nrocasaa = usuario.getNrocasa();
+                    mostrarr = usuario.isMostrar();
+                    nombreEmpresaa = usuario.getNombreEmpresa();
 
                     rubro.setText(rubroo);
-                    nombre.setText(nombnree);
-                    if (mostrar == true){
-                        direccion.setText(barrio+" "+calle+" N° "+nroCasa);
+                    nombre.setText(nombreEmpresaa);
+                    if (mostrarr == true){
+                        direccion.setText(barrioo+" "+callee+" N° "+nrocasaa);
                         direccion.setVisibility(View.VISIBLE);
                     }else{
                         direccion.setVisibility(View.GONE);
                     }
 
                     Glide.with(PerfilPersonalNoticiasActivity.this)
-                            .load(foto).into(fotoPerfil);
+                            .load(urlFotoo).into(fotoPerfil);
                 }
                 @Override
                 public void onCancelled(DatabaseError databaseError) {

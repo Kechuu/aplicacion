@@ -24,6 +24,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -34,6 +35,7 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 import java.util.Objects;
 import Modelos.Noticias;
 import Modelos.Usuario;
@@ -51,7 +53,7 @@ public class CrearNoticiasActivity extends AppCompatActivity {
     private EditText descripcion;
     private FirebaseAuth mAuth;
     private FirebaseDatabase database;
-    private String UID_USUARIO ="",URLFOTOPERFIL ="";
+    private String UID_USUARIO ="",URLFOTOPERFIL ="",nombree;
     private Bitmap thumb_bitmap = null;
     private ProgressDialog cargando;
     private StorageReference storageReference;
@@ -86,14 +88,13 @@ public class CrearNoticiasActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     Usuario usuario = dataSnapshot.getValue(Usuario.class);
-                    String foto = usuario.getUrlFoto();
-                    String nombree = usuario.getNombre();
+                    URLFOTOPERFIL = usuario.getUrlFoto();
+                    nombree = usuario.getNombreEmpresa();
 
                     UID_USUARIO = mAuth.getCurrentUser().getUid();
                     nombre.setText(nombree);
                     Glide.with(CrearNoticiasActivity.this)
-                            .load(foto).into(fotoPerfil);
-                    URLFOTOPERFIL = foto;
+                            .load(URLFOTOPERFIL).into(fotoPerfil);
                 }
 
                 @Override
@@ -169,7 +170,6 @@ public class CrearNoticiasActivity extends AppCompatActivity {
                     cargando.setCancelable(false);
                     cargando.show();
 
-                    final String nombreNegocio = nombre.getText().toString();
                     final String descripcionNegocio = descripcion.getText().toString();
 
                     final StorageReference ref = storageReference.child(aleatorio);
@@ -183,16 +183,11 @@ public class CrearNoticiasActivity extends AppCompatActivity {
                     }).addOnCompleteListener(task -> {
                         Uri download = task.getResult();
 
-                        if (validar(nombreNegocio,descripcionNegocio)){
-                            Noticias noticias = new Noticias();
-                            noticias.setNombreNoticiero(nombreNegocio);
-                            noticias.setDescripcion(descripcionNegocio);
-                            noticias.setUrlFoto(download.toString());
-                            noticias.setIdUsuario(UID_USUARIO);
-                            noticias.setUrlFotoPerfil(URLFOTOPERFIL);
+                        if (validar(descripcionNegocio)){
+                            Noticias noticias = new Noticias(nombree,download.toString(),descripcionNegocio,UID_USUARIO,URLFOTOPERFIL);
                             FirebaseUser currentUser = mAuth.getCurrentUser();
-                            DatabaseReference reference = database.getReference("PublicacionesNoticias/"+currentUser.getUid());
-                            reference.setValue(noticias);
+                            DatabaseReference reference = database.getReference("PublicacionesNoticias");
+                            reference.push().setValue(noticias);
                             cargando.dismiss();
                             finish();
                         }else{
@@ -206,7 +201,7 @@ public class CrearNoticiasActivity extends AppCompatActivity {
             }
         }
     }
-    public boolean validar(String nombre,String barrio){
-        return !nombre.isEmpty() && !barrio.isEmpty();
+    public boolean validar(String barrio){
+        return !barrio.isEmpty();
     }
 }

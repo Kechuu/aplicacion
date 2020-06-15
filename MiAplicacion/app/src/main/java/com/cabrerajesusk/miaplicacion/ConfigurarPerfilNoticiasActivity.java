@@ -46,7 +46,9 @@ public class ConfigurarPerfilNoticiasActivity extends AppCompatActivity {
     private CheckBox mostrar,verificar;
     private FirebaseAuth mAuth;
     private FirebaseDatabase database;
-    private String ID_USUARIO="";
+    private String idUsuarioo,correoo,nombree,apellidoo, telefonoCelularr,barrioo,callee,nrocasaa,urlFotoo,nombreEmpresaa,rubroo;
+    private int jerarquiaa;
+    private boolean mostrarr;
     private Bitmap thumb_bitmap = null;
     private ProgressDialog cargando;
     private StorageReference storageReference;
@@ -95,7 +97,14 @@ public class ConfigurarPerfilNoticiasActivity extends AppCompatActivity {
                     mostrarr = false;
                 }
                 Usuario usuarios = new Usuario();
+                usuarios.setIdUsuario(idUsuarioo);
+                usuarios.setCorreo(correoo);
+                usuarios.setJerarquia(jerarquiaa);
+                usuarios.setNombre(nombree);
+                usuarios.setApellido(apellidoo);
+                usuarios.setNombreEmpresa(nombreEmpresaa);
                 usuarios.setTelefonoCelular(telefono);
+                usuarios.setUrlFoto(urlFotoo);
                 usuarios.setBarrio(barrioo);
                 usuarios.setCalle(callee);
                 usuarios.setNrocasa(nroCasaa);
@@ -120,23 +129,27 @@ public class ConfigurarPerfilNoticiasActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     Usuario usuario = dataSnapshot.getValue(Usuario.class);
-                    String foto = usuario.getUrlFoto();
-                    String rubroo = usuario.getRubro();
-                    String numeroTelefono = usuario.getTelefonoCelular();
-                    String barrioo = usuario.getBarrio();
-                    String callee = usuario.getCalle();
-                    String nroCasaa = usuario.getNrocasa();
-                    boolean mostrarr = usuario.isMostrar();
-                    String nombree = usuario.getNombreEmpresa();
-                    ID_USUARIO = mAuth.getCurrentUser().getUid();
+                    idUsuarioo = mAuth.getCurrentUser().getUid();
+                    correoo = usuario.getCorreo();
+                    jerarquiaa = usuario.getJerarquia();
+                    nombree = usuario.getNombre();
+                    apellidoo = usuario.getApellido();
+                    telefonoCelularr = usuario.getTelefonoCelular();
+                    urlFotoo = usuario.getUrlFoto();
+                    rubroo = usuario.getRubro();
+                    barrioo = usuario.getBarrio();
+                    callee = usuario.getCalle();
+                    nrocasaa = usuario.getNrocasa();
+                    mostrarr = usuario.isMostrar();
+                    nombreEmpresaa = usuario.getNombreEmpresa();
 
                     Glide.with(ConfigurarPerfilNoticiasActivity.this)
-                            .load(foto).into(fotoPerfil);
-                    nroTelefono.setText(numeroTelefono);
+                            .load(urlFotoo).into(fotoPerfil);
+                    nroTelefono.setText(telefonoCelularr);
                     barrio.setText(barrioo);
                     calle.setText(callee);
-                    nroCasa.setText(nroCasaa);
-                    nombre.setText(nombree);
+                    nroCasa.setText(nrocasaa);
+                    nombre.setText(nombreEmpresaa);
                     rubro.setText(rubroo);
 
                     if (mostrarr == true){
@@ -242,7 +255,14 @@ public class ConfigurarPerfilNoticiasActivity extends AppCompatActivity {
                         Uri download = task.getResult();
 
                         Usuario usuarios = new Usuario();
+                        usuarios.setIdUsuario(idUsuarioo);
+                        usuarios.setCorreo(correoo);
+                        usuarios.setJerarquia(jerarquiaa);
+                        usuarios.setNombre(nombree);
+                        usuarios.setApellido(apellidoo);
+                        usuarios.setNombreEmpresa(nombreEmpresaa);
                         usuarios.setTelefonoCelular(telefono);
+                        usuarios.setUrlFoto(urlFotoo);
                         usuarios.setBarrio(barrioo);
                         usuarios.setCalle(callee);
                         usuarios.setNrocasa(nroCasaa);

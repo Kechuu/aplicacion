@@ -15,6 +15,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import EntidadesNoticias.NoticiasActivity;
+import EntidadesPerfilPersonalNegocios.PerfilPersonalNegocioActivity;
+import EntidadesPerfilPersonalNoticias.PerfilPersonalNoticiasActivity;
 import Modelos.Usuario;
 import static com.google.firebase.auth.FirebaseAuth.*;
 
@@ -55,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
                 case 1:
 
-                    Intent intenten1 = new Intent(MainActivity.this, ConfigurarPerfilNoticiasActivity.class);
+                    Intent intenten1 = new Intent(MainActivity.this, PerfilPersonalNoticiasActivity.class);
                     intenten1.putExtra("jerarquia", JERARQUIA_USUARIO);
                     intenten1.putExtra("id",ID_USUARIO);
                     startActivity(intenten1);
@@ -63,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
                 case 2:
 
-                    Intent intenten2 = new Intent(MainActivity.this, ConfigurarPerfilNegocioActivity.class);
+                    Intent intenten2 = new Intent(MainActivity.this, PerfilPersonalNegocioActivity.class);
                     intenten2.putExtra("jerarquia", JERARQUIA_USUARIO);
                     intenten2.putExtra("id",ID_USUARIO);
                     startActivity(intenten2);
@@ -72,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "No se puede saber el destino", Toast.LENGTH_SHORT).show();
                     break;
             }
+        });
+
+        btNoticias.setOnClickListener(v->{
+            startActivity(new Intent(MainActivity.this, NoticiasActivity.class));
         });
     }
 

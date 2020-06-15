@@ -8,6 +8,17 @@ public class Noticias {
     private String idUsuario;
     private String urlFotoPerfil;
 
+    public Noticias() {
+    }
+
+    public Noticias(String nombreNoticiero, String urlFoto, String descripcion, String idUsuarios, String urlFotoPerfil) {
+        this.nombreNoticiero = nombreNoticiero;
+        this.urlFoto = urlFoto;
+        this.descripcion = descripcion;
+        this.idUsuario = idUsuarios;
+        this.urlFotoPerfil = urlFotoPerfil;
+    }
+
     public String getUrlFotoPerfil() {
         return urlFotoPerfil;
     }
