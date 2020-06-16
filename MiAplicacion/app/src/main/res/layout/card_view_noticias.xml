@@ -4,14 +4,14 @@
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    cardview:cardCornerRadius="10sp"
     android:background="#75D2FB">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#75D2FB">
+        android:background="#75D2FB"
+        android:padding="10sp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,14 +40,14 @@
                         android:hint="Nombre del noticiero"
                         android:layout_weight="1"
                         android:textColorHint="#000000"
-                        android:background="#75D2FB"/>
+                        android:background="#75D2FB"
+                        android:padding="5sp"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="5sp"
             android:background="#75D2FB">
             <ImageView
                 android:id="@+id/idFotoNoticia"
@@ -61,12 +61,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="#75D2FB">
+            android:background="#75D2FB"
+            android:padding="5sp">
             <TextView
                 android:id="@+id/idDescripcionNoticia"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Descripcion de las publicaciones"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
                 android:textColorHint="#000000"
                 android:background="#75D2FB"/>
         </LinearLayout>
