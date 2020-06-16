@@ -19,6 +19,8 @@ import com.google.firebase.database.ValueEventListener;
 import EntidadesNoticias.NoticiasActivity;
 import EntidadesPerfilPersonalNegocios.PerfilPersonalNegocioActivity;
 import EntidadesPerfilPersonalNoticias.PerfilPersonalNoticiasActivity;
+import EntidadesPublicaciones.PublicacionesActivity;
+import Modelos.Publicaciones;
 import Modelos.Usuario;
 import static com.google.firebase.auth.FirebaseAuth.*;
 
@@ -51,26 +53,15 @@ public class MainActivity extends AppCompatActivity {
         btnPerfil.setOnClickListener(v -> {
             switch (JERARQUIA_USUARIO){
                 case 0:
-                    Intent intenten = new Intent(MainActivity.this, PerfilPersonalConfigurarActivity.class);
-                    intenten.putExtra("jerarquia", JERARQUIA_USUARIO);
-                    intenten.putExtra("id",ID_USUARIO);
-                    startActivity(intenten);
+                    startActivity(new Intent(MainActivity.this, PerfilPersonalConfigurarActivity.class));
                     break;
 
                 case 1:
-
-                    Intent intenten1 = new Intent(MainActivity.this, PerfilPersonalNoticiasActivity.class);
-                    intenten1.putExtra("jerarquia", JERARQUIA_USUARIO);
-                    intenten1.putExtra("id",ID_USUARIO);
-                    startActivity(intenten1);
+                    startActivity(new Intent(MainActivity.this, PerfilPersonalNoticiasActivity.class));
                     break;
 
                 case 2:
-
-                    Intent intenten2 = new Intent(MainActivity.this, PerfilPersonalNegocioActivity.class);
-                    intenten2.putExtra("jerarquia", JERARQUIA_USUARIO);
-                    intenten2.putExtra("id",ID_USUARIO);
-                    startActivity(intenten2);
+                    startActivity(new Intent(MainActivity.this, PerfilPersonalNegocioActivity.class));
                     break;
                 default:
                     Toast.makeText(MainActivity.this, "No se puede saber el destino", Toast.LENGTH_SHORT).show();
@@ -80,6 +71,21 @@ public class MainActivity extends AppCompatActivity {
 
         btNoticias.setOnClickListener(v->{
             startActivity(new Intent(MainActivity.this, NoticiasActivity.class));
+        });
+        btnComida.setOnClickListener(v->{
+            Intent intent = new Intent(MainActivity.this, PublicacionesActivity.class);
+            intent.putExtra("level",0);
+            startActivity(intent);
+        });
+        btnRopa.setOnClickListener(v->{
+            Intent intent1 = new Intent(MainActivity.this,PublicacionesActivity.class);
+            intent1.putExtra("level",1);
+            startActivity(intent1);
+        });
+        btnRopaBebe.setOnClickListener(v->{
+            Intent intent2 = new Intent(MainActivity.this,PublicacionesActivity.class);
+            intent2.putExtra("level",2);
+            startActivity(intent2);
         });
     }
 

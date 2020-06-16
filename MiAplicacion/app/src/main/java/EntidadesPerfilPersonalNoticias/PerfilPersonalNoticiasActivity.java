@@ -59,8 +59,7 @@ public class PerfilPersonalNoticiasActivity extends AppCompatActivity {
         configurarPerfil = (Button) findViewById(R.id.idBotonConfigurarPerfilPersonalNoticias);
         crearPublicacion = (Button) findViewById(R.id.idBotonCrearPublicacionPersonalNoticias);
 
-        rvNoticiasPerfilPersonal = (RecyclerView) findViewById(R.id.rvInicioPerfilPersonalNegocio);
-        databaseReference = database.getReference("PublicacionesNoticias");
+        rvNoticiasPerfilPersonal = (RecyclerView) findViewById(R.id.rvInicioPerfilPersonalNoticias);
 
         adapterPerfilPersonalNoticias = new AdapterPerfilPersonalNoticias(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -69,6 +68,7 @@ public class PerfilPersonalNoticiasActivity extends AppCompatActivity {
 
         mAuth = getInstance();
         database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("PublicacionesNoticias");
 
         crearPublicacion.setOnClickListener(v -> {
             startActivity(new Intent(PerfilPersonalNoticiasActivity.this, CrearNoticiasActivity.class));

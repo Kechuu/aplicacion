@@ -11,6 +11,21 @@ public class Publicaciones {
     private String urlFotoPerfil;
     private int jerarquia;
 
+    public Publicaciones(String nombreNegocio, String titulo, String precio, String descripcion, boolean stock, String urlFoto, String idUsuario, String urlFotoPerfil, int jerarquia) {
+        this.nombreNegocio = nombreNegocio;
+        this.titulo = titulo;
+        this.precio = precio;
+        this.descripcion = descripcion;
+        this.stock = stock;
+        this.urlFoto = urlFoto;
+        this.idUsuario = idUsuario;
+        this.urlFotoPerfil = urlFotoPerfil;
+        this.jerarquia = jerarquia;
+    }
+
+    public Publicaciones() {
+    }
+
     public String getNombreNegocio() {
         return nombreNegocio;
     }

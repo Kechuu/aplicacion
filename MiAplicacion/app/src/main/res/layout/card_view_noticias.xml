@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="#75D2FB"
-        android:padding="10sp">
+        android:padding="10sp"
+        android:layout_marginTop="1sp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,7 +42,8 @@
                         android:layout_weight="1"
                         android:textColorHint="#000000"
                         android:background="#75D2FB"
-                        android:padding="5sp"/>
+                        android:padding="5sp"
+                        android:textSize="16sp"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -72,7 +74,8 @@
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
                 android:textColorHint="#000000"
-                android:background="#75D2FB"/>
+                android:background="#75D2FB"
+                android:textSize="16sp"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -3,50 +3,63 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    cardview:cardCornerRadius="10sp">
+    android:layout_height="match_parent">
 
     <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginTop="1sp"
+        android:background="#75D2FB">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="#75D2FB">
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#75D2FB">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/idFotoPerfilPublicacion"
                 android:layout_width="44sp"
                 android:layout_height="44sp"
-                android:src="@mipmap/ic_launcher"/>
+                android:src="@mipmap/ic_launcher"
+                android:background="#75D2FB"/>
         </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="#75D2FB">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:background="#75D2FB">
                     <TextView
                         android:id="@+id/idNombreNegocioPublicacion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Nombre del negocio"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        android:background="#75D2FB"
+                        android:textColorHint="#000000"
+                        android:textSize="16sp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:background="#75D2FB">
                     <TextView
                         android:id="@+id/idTituloPublicacion"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:hint="Titulo de la publicacion"
                         android:layout_weight="1"
-                        android:gravity="right"/>
+                        android:gravity="right"
+                        android:background="#75D2FB"
+                        android:textColorHint="#000000"
+                        android:textSize="18sp"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -54,76 +67,60 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="5sp">
+            android:padding="5sp"
+            android:background="#75D2FB">
             <ImageView
                 android:id="@+id/idFotoPublicacion"
                 android:layout_width="match_parent"
                 android:layout_height="400sp"
                 android:src="@mipmap/ic_launcher_round"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:background="#75D2FB"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="#75D2FB">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/idLikePublicacion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Likes"
-                    android:padding="5sp"
-                    android:layout_weight="1"/>
+                android:layout_height="wrap_content"
+                android:background="#75D2FB"
+                android:orientation="horizontal">
                 <TextView
                     android:id="@+id/idPrecioPublicacion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Precio del producto"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                    android:hint="Precio del producto"
+                    android:background="#75D2FB"
+                    android:textColorHint="#6C0AC1"
+                    android:textSize="16sp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5sp">
-                    <ImageButton
-                        android:id="@+id/idMeGustaPublicacion"
-                        android:layout_width="34sp"
-                        android:layout_height="34sp"
-                        android:src="@drawable/abc_vector_test"
-                        android:padding="5sp"/>
+                    android:gravity="right">
                     <ImageButton
                         android:id="@+id/idMensajePublicacion"
                         android:layout_width="34sp"
                         android:layout_height="34sp"
-                        android:src="@drawable/abc_vector_test"
-                        android:padding="5sp"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="right">
-                        <TextView
-                            android:id="@+id/idStockPublicacion"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:hint="Stock"/>
-                    </LinearLayout>
+                        android:src="@android:drawable/ic_menu_send"
+                        android:padding="5sp"
+                        android:background="#75D2FB"
+                        android:layout_gravity="right"/>
                 </LinearLayout>
             </LinearLayout>
             <TextView
                 android:id="@+id/idDescripcionPublicacion"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Descripcion de las publicaciones"/>
-            <TextView
-                android:id="@+id/idHoraPublicacion"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Hora de la publicacion"/>
+                android:hint="Descripcion de las publicaciones"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:textColorHint="#000000"
+                android:background="#75D2FB"
+                android:padding="5sp"
+                android:textSize="16sp"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

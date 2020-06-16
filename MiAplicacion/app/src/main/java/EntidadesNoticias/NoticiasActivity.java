@@ -36,14 +36,14 @@ public class NoticiasActivity extends AppCompatActivity {
         rvNoticias = (RecyclerView) findViewById(R.id.rvInicioNoticias);
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference("PublicacionesNoticias");
-        Query query = databaseReference.limitToLast(10);
+        //Query query = databaseReference.limitToLast(10);
 
         adapterNoticias = new AdapterNoticias(this);
         LinearLayoutManager l = new LinearLayoutManager(this);
         rvNoticias.setLayoutManager(l);
         rvNoticias.setAdapter(adapterNoticias);
 
-        query.addChildEventListener(new ChildEventListener() {
+        databaseReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 Noticias n = dataSnapshot.getValue(Noticias.class);
@@ -70,32 +70,6 @@ public class NoticiasActivity extends AppCompatActivity {
 
             }
         });
-
-        rvNoticias.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-
-                int visibleItemCount = l.getChildCount();
-                int totalItemCount = l.getItemCount();
-                int firstVisibleItemPosition = l.findFirstVisibleItemPosition();
-
-                if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount && firstVisibleItemPosition >=0){
-                    loadMoreItems();
-                }
-            }
-        });
-
-    }
-
-    private void loadMoreItems(){
-        int offset = 0;
-        
     }
 
 }
