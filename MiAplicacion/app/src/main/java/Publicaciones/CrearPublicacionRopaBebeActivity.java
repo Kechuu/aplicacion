@@ -191,18 +191,9 @@ public class CrearPublicacionRopaBebeActivity extends AppCompatActivity {
                         Uri download = task.getResult();
 
                         if (validar(nombreNegocio,tituloNegocio,precioNegocio,descripcionNegocio)){
-                            Publicaciones publicaciones = new Publicaciones();
-                            publicaciones.setNombreNegocio(nombreNegocio);
-                            publicaciones.setTitulo(tituloNegocio);
-                            publicaciones.setPrecio(precioNegocio);
-                            publicaciones.setDescripcion(descripcionNegocio);
-                            publicaciones.setStock(true);
-                            publicaciones.setUrlFoto(download.toString());
-                            publicaciones.setIdUsuario(UID_USUARIO);
-                            publicaciones.setUrlFotoPerfil(URLFOTOPERFIL);
-                            FirebaseUser currentUser = mAuth.getCurrentUser();
-                            DatabaseReference reference = database.getReference("PublicacionesRopaBebe/"+currentUser.getUid());
-                            reference.setValue(publicaciones);
+                            Publicaciones publicaciones = new Publicaciones(nombreNegocio,tituloNegocio,precioNegocio,descripcionNegocio,true,download.toString(),UID_USUARIO,URLFOTOPERFIL,4);
+                            DatabaseReference reference = database.getReference("PublicacionesRopaBebe");
+                            reference.push().setValue(publicaciones);
                             cargando.dismiss();
                             finish();
                         }else{

@@ -25,6 +25,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import Modelos.Usuario;
 import Publicaciones.CrearPublicacionActivity;
+import Publicaciones.CrearPublicacionRopaActivity;
+import Publicaciones.CrearPublicacionRopaBebeActivity;
 
 import static com.google.firebase.auth.FirebaseAuth.getInstance;
 
@@ -41,6 +43,8 @@ public class PerfilPersonalNegocioActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_personal_negocio);
+        Bundle dato = this.getIntent().getExtras();
+        int bussines = dato.getInt("bussines");
 
         nombre = (TextView) findViewById(R.id.idNombreNegocioPerfilPersonalNegocio);
         fotoPerfil = (ImageView) findViewById(R.id.idFotoPerfilPerfilPersonalNegocio);
@@ -53,7 +57,19 @@ public class PerfilPersonalNegocioActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
 
         crearPublicacion.setOnClickListener(v -> {
-            startActivity(new Intent(PerfilPersonalNegocioActivity.this, CrearPublicacionActivity.class));
+            switch (bussines){
+                case 1:
+                    startActivity(new Intent(PerfilPersonalNegocioActivity.this, CrearPublicacionActivity.class));
+                    break;
+                case 2:
+                    startActivity(new Intent(PerfilPersonalNegocioActivity.this, CrearPublicacionRopaActivity.class));
+                    break;
+                case 3:
+                    startActivity(new Intent(PerfilPersonalNegocioActivity.this, CrearPublicacionRopaBebeActivity.class));
+                    break;
+                default:
+                    break;
+            }
         });
         configPerfil.setOnClickListener(v ->{
             startActivity(new Intent(PerfilPersonalNegocioActivity.this, ConfigurarPerfilNegocioActivity.class));
@@ -71,7 +87,7 @@ public class PerfilPersonalNegocioActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     Usuario usuario = dataSnapshot.getValue(Usuario.class);
-                    String nombnree = usuario.getNombre();
+                    String nombnree = usuario.getNombreEmpresa();
                     String foto = usuario.getUrlFoto();
                     String rubroo = usuario.getRubro();
                     String barrio = usuario.getBarrio();

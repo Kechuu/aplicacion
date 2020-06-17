@@ -185,7 +185,6 @@ public class CrearNoticiasActivity extends AppCompatActivity {
 
                         if (validar(descripcionNegocio)){
                             Noticias noticias = new Noticias(nombree,download.toString(),descripcionNegocio,UID_USUARIO,URLFOTOPERFIL);
-                            FirebaseUser currentUser = mAuth.getCurrentUser();
                             DatabaseReference reference = database.getReference("PublicacionesNoticias");
                             reference.push().setValue(noticias);
                             cargando.dismiss();

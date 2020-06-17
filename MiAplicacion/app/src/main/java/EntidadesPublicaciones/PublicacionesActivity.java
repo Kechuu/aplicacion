@@ -49,7 +49,7 @@ public class PublicacionesActivity extends AppCompatActivity {
         rvInicio = (RecyclerView) findViewById(R.id.rvInicio);
 
         database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference("PublicacionesDelivery");
+        databaseReference = database.getReference("PublicacionesComida");
         databaseReference1 = database.getReference("PublicacionesRopa");
         databaseReference2 = database.getReference("PublicacionesRopaBebe");
 

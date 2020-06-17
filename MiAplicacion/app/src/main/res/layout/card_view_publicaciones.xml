@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <LinearLayout
     android:layout_width="match_parent"
@@ -19,11 +19,12 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#75D2FB">
+            android:background="#75D2FB"
+            android:padding="5sp">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/idFotoPerfilPublicacion"
-                android:layout_width="44sp"
-                android:layout_height="44sp"
+                android:layout_width="54sp"
+                android:layout_height="54sp"
                 android:src="@mipmap/ic_launcher"
                 android:background="#75D2FB"/>
         </LinearLayout>
@@ -44,7 +45,8 @@
                         android:layout_weight="1"
                         android:background="#75D2FB"
                         android:textColorHint="#000000"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp"
+                        android:padding="5sp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -59,7 +61,8 @@
                         android:gravity="right"
                         android:background="#75D2FB"
                         android:textColorHint="#000000"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp"
+                        android:padding="5sp"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -86,7 +89,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#75D2FB"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="10sp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="$"/>
                 <TextView
                     android:id="@+id/idPrecioPublicacion"
                     android:layout_width="wrap_content"
@@ -104,23 +112,26 @@
                         android:layout_width="34sp"
                         android:layout_height="34sp"
                         android:src="@android:drawable/ic_menu_send"
-                        android:padding="5sp"
                         android:background="#75D2FB"
                         android:layout_gravity="right"/>
                 </LinearLayout>
             </LinearLayout>
-            <TextView
-                android:id="@+id/idDescripcionPublicacion"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Descripcion de las publicaciones"
-                android:ems="10"
-                android:gravity="start|top"
-                android:inputType="textMultiLine"
-                android:textColorHint="#000000"
-                android:background="#75D2FB"
-                android:padding="5sp"
-                android:textSize="16sp"/>
+                android:layout_height="wrap_content"
+                android:padding="10sp">
+                <TextView
+                    android:id="@+id/idDescripcionPublicacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Descripcion de las publicaciones"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:inputType="textMultiLine"
+                    android:textColorHint="#000000"
+                    android:background="#75D2FB"
+                    android:textSize="16sp"/>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

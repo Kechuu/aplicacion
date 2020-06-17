@@ -61,7 +61,22 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case 2:
-                    startActivity(new Intent(MainActivity.this, PerfilPersonalNegocioActivity.class));
+                    //Delivery
+                    Intent intent = new Intent(MainActivity.this,PerfilPersonalNegocioActivity.class);
+                    intent.putExtra("bussines",1);
+                    startActivity(intent);
+                    break;
+                case 3:
+                    //Ropa
+                    Intent intent1 = new Intent(MainActivity.this,PerfilPersonalNegocioActivity.class);
+                    intent1.putExtra("bussines",2);
+                    startActivity(intent1);
+                    break;
+                case 4:
+                    //RopaBebe
+                    Intent intent2 = new Intent(MainActivity.this,PerfilPersonalNegocioActivity.class);
+                    intent2.putExtra("bussines",3);
+                    startActivity(intent2);
                     break;
                 default:
                     Toast.makeText(MainActivity.this, "No se puede saber el destino", Toast.LENGTH_SHORT).show();
