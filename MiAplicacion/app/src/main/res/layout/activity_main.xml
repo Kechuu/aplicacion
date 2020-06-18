@@ -6,11 +6,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:background="@drawable/fondo_">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@drawable/fondo_">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -21,55 +23,79 @@
                     android:layout_height="wrap_content"
                     android:hint="Hoy Salen los Pares"
                     android:textSize="26sp"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:padding="5sp"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:padding="5sp">
                 <ImageButton
                     android:id="@+id/idNoticiasInicio"
                     android:layout_width="200sp"
                     android:layout_height="200sp"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@drawable/noticias"
+                    android:padding="5sp"
+                    android:background="@drawable/fondo_"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:hint="  "/>
                 <ImageButton
                     android:id="@+id/idComidaInicio"
                     android:layout_width="200sp"
                     android:layout_height="200sp"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@drawable/delivery"
+                    android:padding="5dp"
+                    android:background="@drawable/fondo_"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:padding="5sp">
                 <ImageButton
                     android:id="@+id/idRopaInicio"
                     android:layout_width="200sp"
                     android:layout_height="200sp"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@drawable/ropa"
+                    android:background="@drawable/fondo_"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:hint="  "/>
                 <ImageButton
                     android:id="@+id/idBebeInicio"
                     android:layout_width="200sp"
                     android:layout_height="200sp"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@drawable/bebe"
+                    android:background="@drawable/fondo_"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:padding="5sp">
                 <ImageButton
                     android:id="@+id/idFarmaciaInicio"
                     android:layout_width="200sp"
                     android:layout_height="200sp"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@drawable/farmacia"
+                    android:background="@drawable/fondo_"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:hint="  "/>
                 <ImageButton
                     android:id="@+id/idContactoInicio"
                     android:layout_width="200sp"
                     android:layout_height="200sp"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@drawable/contacto"
+                    android:background="@drawable/fondo_"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"

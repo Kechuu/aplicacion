@@ -10,30 +10,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#75D2FB"
         android:padding="10sp"
-        android:layout_marginTop="1sp">
+        android:layout_marginTop="1sp"
+        android:background="#75D2FB">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="#75D2FB">
+            android:background="#A8D4E8">
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#75D2FB">
+                android:layout_height="wrap_content">
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/idFotoPerfilNoticia"
                     android:layout_width="44sp"
                     android:layout_height="44sp"
-                    android:src="@mipmap/ic_launcher"
-                    android:background="#75D2FB"/>
+                    android:src="@mipmap/ic_launcher"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#75D2FB">
+                android:orientation="vertical">
                     <TextView
                         android:id="@+id/idNombreNoticieroNoticia"
                         android:layout_width="wrap_content"
@@ -41,7 +38,6 @@
                         android:hint="Nombre del noticiero"
                         android:layout_weight="1"
                         android:textColorHint="#000000"
-                        android:background="#75D2FB"
                         android:padding="5sp"
                         android:textSize="16sp"/>
             </LinearLayout>
@@ -49,22 +45,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#75D2FB">
+            android:orientation="vertical">
             <ImageView
                 android:id="@+id/idFotoNoticia"
                 android:layout_width="match_parent"
                 android:layout_height="400sp"
                 android:src="@mipmap/ic_launcher_round"
-                android:layout_gravity="center"
-                android:background="#75D2FB"/>
+                android:layout_gravity="center"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="#75D2FB"
-            android:padding="5sp">
+            android:orientation="vertical">
             <TextView
                 android:id="@+id/idDescripcionNoticia"
                 android:layout_width="match_parent"
@@ -73,9 +65,9 @@
                 android:ems="10"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
-                android:textColorHint="#000000"
-                android:background="#75D2FB"
-                android:textSize="16sp"/>
+                android:textColor="#FFFDFD"
+                android:textSize="16sp"
+                android:background="#A3AAC8"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

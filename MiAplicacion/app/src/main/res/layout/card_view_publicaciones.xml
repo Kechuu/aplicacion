@@ -9,49 +9,41 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_marginTop="1sp"
-        android:background="#75D2FB">
+    android:layout_marginTop="1sp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#75D2FB">
+        android:orientation="horizontal">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#75D2FB"
             android:padding="5sp">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/idFotoPerfilPublicacion"
                 android:layout_width="54sp"
                 android:layout_height="54sp"
-                android:src="@mipmap/ic_launcher"
-                android:background="#75D2FB"/>
+                android:src="@mipmap/ic_launcher"/>
         </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#75D2FB">
+                android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#75D2FB">
+                    android:layout_height="wrap_content">
                     <TextView
                         android:id="@+id/idNombreNegocioPublicacion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Nombre del negocio"
                         android:layout_weight="1"
-                        android:background="#75D2FB"
                         android:textColorHint="#000000"
                         android:textSize="16sp"
                         android:padding="5sp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#75D2FB">
+                    android:layout_height="wrap_content">
                     <TextView
                         android:id="@+id/idTituloPublicacion"
                         android:layout_width="wrap_content"
@@ -59,7 +51,6 @@
                         android:hint="Titulo de la publicacion"
                         android:layout_weight="1"
                         android:gravity="right"
-                        android:background="#75D2FB"
                         android:textColorHint="#000000"
                         android:textSize="18sp"
                         android:padding="5sp"/>
@@ -70,25 +61,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="5sp"
-            android:background="#75D2FB">
+            android:padding="5sp">
             <ImageView
                 android:id="@+id/idFotoPublicacion"
                 android:layout_width="match_parent"
                 android:layout_height="400sp"
                 android:src="@mipmap/ic_launcher_round"
-                android:layout_gravity="center"
-                android:background="#75D2FB"/>
+                android:layout_gravity="center"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="#75D2FB">
+            android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#75D2FB"
                 android:orientation="horizontal"
                 android:padding="10sp">
                 <TextView
@@ -100,7 +87,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Precio del producto"
-                    android:background="#75D2FB"
                     android:textColorHint="#6C0AC1"
                     android:textSize="16sp"/>
                 <LinearLayout
@@ -112,7 +98,6 @@
                         android:layout_width="34sp"
                         android:layout_height="34sp"
                         android:src="@android:drawable/ic_menu_send"
-                        android:background="#75D2FB"
                         android:layout_gravity="right"/>
                 </LinearLayout>
             </LinearLayout>
@@ -129,7 +114,6 @@
                     android:gravity="start|top"
                     android:inputType="textMultiLine"
                     android:textColorHint="#000000"
-                    android:background="#75D2FB"
                     android:textSize="16sp"/>
             </LinearLayout>
         </LinearLayout>
