@@ -1,6 +1,7 @@
 package EntidadesPublicaciones;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -59,6 +60,208 @@ public class PublicacionesActivity extends AppCompatActivity {
         rvInicio.setAdapter(adapterPublicaciones);
 
         setDatabaseReference(level);
+
+        buscar.setOnClickListener(v -> {
+            setDinamicSearch(level);
+        });
+        categoria.setOnClickListener(v -> {
+            setCategoriaSelected(level,categoria.getText().toString());
+        });
+        categoria1.setOnClickListener(v -> {
+            setCategoriaSelected(level,categoria1.getText().toString());
+        });
+        categoria2.setOnClickListener(v -> {
+            setCategoriaSelected(level,categoria2.getText().toString());
+        });
+        categoria3.setOnClickListener(v -> {
+            setCategoriaSelected(level,categoria3.getText().toString());
+        });
+    }
+
+    public void setCategoriaSelected(int level, String nombre){
+        switch (level){
+            case 0:
+                databaseReference.orderByChild("titulo").startAt(nombre).endAt(nombre+"\uf8ff").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                        Publicaciones publicaciones = dataSnapshot.getValue(Publicaciones.class);
+                        adapterPublicaciones.addPublicaciones(publicaciones);
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+                break;
+            case 1:
+                databaseReference1.orderByChild("titulo").startAt(nombre).endAt(nombre+"\uf8ff").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                        Publicaciones publicaciones = dataSnapshot.getValue(Publicaciones.class);
+                        adapterPublicaciones.addPublicaciones(publicaciones);
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+                break;
+            case 2:
+                databaseReference2.orderByChild("titulo").startAt(nombre).endAt(nombre+"\uf8ff").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                        Publicaciones publicaciones = dataSnapshot.getValue(Publicaciones.class);
+                        adapterPublicaciones.addPublicaciones(publicaciones);
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+                break;
+            default:
+                break;
+        }
+    }
+    public void setDinamicSearch(int level){
+        String nombre = escribirCategoria.getText().toString();
+        switch (level){
+            case 0:
+                databaseReference.orderByChild("titulo").startAt(nombre).endAt(nombre+"\uf8ff").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                        Publicaciones publicaciones = dataSnapshot.getValue(Publicaciones.class);
+                        adapterPublicaciones.addPublicaciones(publicaciones);
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+                break;
+            case 1:
+                databaseReference1.orderByChild("titulo").startAt(nombre).endAt(nombre+"\uf8ff").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                        Publicaciones publicaciones = dataSnapshot.getValue(Publicaciones.class);
+                        adapterPublicaciones.addPublicaciones(publicaciones);
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+                break;
+            case 2:
+                databaseReference2.orderByChild("titulo").startAt(nombre).endAt(nombre+"\uf8ff").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                        Publicaciones publicaciones = dataSnapshot.getValue(Publicaciones.class);
+                        adapterPublicaciones.addPublicaciones(publicaciones);
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+                break;
+            default:
+                break;
+        }
     }
     public void setDatabaseReference(int level){
         switch (level){
