@@ -10,17 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10sp"
-        android:layout_marginTop="1sp"
-        android:background="#75D2FB">
+        android:layout_marginTop="3sp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="#A8D4E8">
+            android:orientation="horizontal">
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="5sp">
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/idFotoPerfilNoticia"
                     android:layout_width="44sp"
@@ -29,23 +27,26 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#A8D4E8">
                     <TextView
                         android:id="@+id/idNombreNoticieroNoticia"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Nombre del noticiero"
                         android:layout_weight="1"
-                        android:textColorHint="#000000"
+                        android:textColor="#000000"
                         android:padding="5sp"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp"
+                        android:background="#A8D4E8"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="5sp">
             <ImageView
                 android:id="@+id/idFotoNoticia"
                 android:layout_width="match_parent"
@@ -56,7 +57,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="#38A2F6"
+            android:padding="10sp">
             <TextView
                 android:id="@+id/idDescripcionNoticia"
                 android:layout_width="match_parent"
@@ -65,9 +68,12 @@
                 android:ems="10"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
-                android:textColor="#FFFDFD"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
                 android:textSize="16sp"
-                android:background="#A3AAC8"/>
+                android:shadowDx="4"
+                android:shadowDy="2"
+                android:shadowRadius="3"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

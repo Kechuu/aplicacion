@@ -37,9 +37,10 @@
                         android:layout_height="wrap_content"
                         android:hint="Nombre del negocio"
                         android:layout_weight="1"
-                        android:textColorHint="#000000"
-                        android:textSize="16sp"
-                        android:padding="5sp"/>
+                        android:textColor="#000000"
+                        android:textSize="15sp"
+                        android:padding="5sp"
+                        android:background="#A8D4E8"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -51,9 +52,10 @@
                         android:hint="Titulo de la publicacion"
                         android:layout_weight="1"
                         android:gravity="right"
-                        android:textColorHint="#000000"
+                        android:textColor="#000000"
                         android:textSize="18sp"
-                        android:padding="5sp"/>
+                        android:padding="5sp"
+                        android:background="#A8D4E8"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -72,7 +74,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="#38A2F6">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,14 +84,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="$"/>
+                    android:hint="$"
+                    android:textColor="#000000"
+                    android:background="#38A2F6"/>
                 <TextView
                     android:id="@+id/idPrecioPublicacion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Precio del producto"
-                    android:textColorHint="#6C0AC1"
-                    android:textSize="16sp"/>
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:background="#38A2F6"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -113,8 +119,9 @@
                     android:ems="10"
                     android:gravity="start|top"
                     android:inputType="textMultiLine"
-                    android:textColorHint="#000000"
-                    android:textSize="16sp"/>
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:background="#38A2F6"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
