@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    cardview:cardCornerRadius="10sp">
+    android:layout_height="wrap_content"
+    android:padding="1sp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,11 +16,12 @@
             android:orientation="horizontal">
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="5sp">
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/idFotoPerfilPublicacionPerfil"
-                    android:layout_width="44sp"
-                    android:layout_height="44sp"
+                    android:layout_width="54sp"
+                    android:layout_height="54sp"
                     android:src="@mipmap/ic_launcher"/>
             </LinearLayout>
             <LinearLayout
@@ -35,7 +36,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Nombre del negocio"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textSize="15sp"
+                        android:padding="5sp"
+                        android:background="#A8D4E8"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -46,7 +51,11 @@
                         android:layout_height="match_parent"
                         android:hint="Titulo de la publicacion"
                         android:layout_weight="1"
-                        android:gravity="right"/>
+                        android:gravity="right"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:padding="5sp"
+                        android:background="#A8D4E8"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -57,72 +66,62 @@
             android:padding="5sp">
             <ImageView
                 android:id="@+id/idFotoPublicacionPerfil"
-                android:layout_width="200sp"
-                android:layout_height="200sp"
+                android:layout_width="300sp"
+                android:layout_height="300sp"
                 android:src="@mipmap/ic_launcher_round"
                 android:layout_gravity="center"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="#38A2F6">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="#38A2F6"
+                android:padding="10sp">
                 <TextView
-                    android:id="@+id/idLikePublicacionPerfil"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Likes"
+                    android:hint="$"
                     android:padding="5sp"
-                    android:layout_weight="1"/>
+                    android:textColor="#000000"
+                    android:background="#38A2F6"/>
                 <TextView
                     android:id="@+id/idPrecioPublicacionPerfil"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Precio del producto"/>
+                    android:hint="Precio del producto"
+                    android:textColor="#000000"
+                    android:background="#38A2F6"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right">
+                    <ImageButton
+                        android:id="@+id/idBorrarPublicacionPerfil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/crop_image_menu_flip"/>
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <LinearLayout
+                android:padding="10sp">
+                <TextView
+                    android:id="@+id/idDescripcionPublicacionPerfil"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp">
-                    <ImageButton
-                        android:id="@+id/idMeGustaPublicacionPerfil"
-                        android:layout_width="34sp"
-                        android:layout_height="34sp"
-                        android:src="@drawable/abc_vector_test"
-                        android:padding="5sp"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="right">
-                        <Button
-                            android:id="@+id/idStockPublicacionPerfil"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:hint="Stock"/>
-                        <Button
-                            android:id="@+id/idBorrarPublicacionPerfil"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:hint="Eliminar"/>
-                    </LinearLayout>
-                </LinearLayout>
+                    android:layout_height="match_parent"
+                    android:hint="Descripcion de las publicaciones"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:inputType="textMultiLine"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:background="#38A2F6"/>
             </LinearLayout>
-            <TextView
-                android:id="@+id/idDescripcionPublicacionPerfil"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Descripcion de las publicaciones"/>
-            <TextView
-                android:id="@+id/idHoraPublicacionPerfil"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Hora de la publicacion"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

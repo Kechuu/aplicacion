@@ -77,7 +77,7 @@ public class PerfilPersonalNoticiasActivity extends AppCompatActivity {
             startActivity(new Intent(PerfilPersonalNoticiasActivity.this, ConfigurarPerfilNoticiasActivity.class));
         });
 
-        databaseReference.addChildEventListener(new ChildEventListener() {
+        databaseReference.orderByChild("idUsuario").startAt(idUsuarioo).endAt(idUsuarioo+"\uf8ff").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 Noticias noticias = dataSnapshot.getValue(Noticias.class);

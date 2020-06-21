@@ -25,8 +25,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import EntidadesPublicaciones.AdapterPublicaciones;
 import Modelos.Publicaciones;
 import Modelos.Usuario;
 import Publicaciones.CrearPublicacionActivity;
@@ -46,7 +44,7 @@ public class PerfilPersonalNegocioActivity extends AppCompatActivity {
     private RecyclerView rvInicio;
     private String idUsuario="";
     private DatabaseReference databaseReference,databaseReference1,databaseReference2;
-    private AdapterPublicaciones adapterPublicaciones;
+    private AdapterPerfilPersonalNegocios adapterPerfilPersonalNegocios;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,10 +67,10 @@ public class PerfilPersonalNegocioActivity extends AppCompatActivity {
         databaseReference1 = database.getReference("PublicacionesRopa");
         databaseReference2 = database.getReference("PublicacionesRopaBebe");
 
-        adapterPublicaciones = new AdapterPublicaciones(this);
+        adapterPerfilPersonalNegocios = new AdapterPerfilPersonalNegocios(this);
         LinearLayoutManager l = new LinearLayoutManager(this);
         rvInicio.setLayoutManager(l);
-        rvInicio.setAdapter(adapterPublicaciones);
+        rvInicio.setAdapter(adapterPerfilPersonalNegocios);
 
         crearPublicacion.setOnClickListener(v -> {
             switch (bussines){
@@ -93,52 +91,20 @@ public class PerfilPersonalNegocioActivity extends AppCompatActivity {
             startActivity(new Intent(PerfilPersonalNegocioActivity.this, ConfigurarPerfilNegocioActivity.class));
         });
 
-        //Crear el holder y el adpter del cardView de perfil personal Negocio y noticia
-        //El filtrado de las noticias y publicaciones ya está hecho..
-        //Me falta solamente implementarlo en el de perfil personal de noticias cuando cree el holder y el adapter de los dos
-
+        setCategoriaSelected(bussines,idUsuario);
     }
     public void setCategoriaSelected(int level, String idUsuario){
         switch (level){
-            case 0:
+            case 1:
                 databaseReference.orderByChild("idUsuario").startAt(idUsuario).endAt(idUsuario+"\uf8ff").addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                         Publicaciones publicaciones = dataSnapshot.getValue(Publicaciones.class);
-                        adapterPublicaciones.addPublicaciones(publicaciones);
+                        adapterPerfilPersonalNegocios.addPublicacionesInicio(publicaciones);
                     }
 
                     @Override
                     public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                    }
-
-                    @Override
-                    public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-                    }
-
-                    @Override
-                    public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-                break;
-            case 1:
-                databaseReference1.orderByChild("idUsuario").startAt(idUsuario).endAt(idUsuario+"\uf8ff").addChildEventListener(new ChildEventListener() {
-                    @Override
-                    public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                        Publicaciones publicaciones = dataSnapshot.getValue(Publicaciones.class);
-                        adapterPublicaciones.addPublicaciones(publicaciones);
-                    }
-
-                    @Override
-                    public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
                     }
 
                     @Override
@@ -158,11 +124,40 @@ public class PerfilPersonalNegocioActivity extends AppCompatActivity {
                 });
                 break;
             case 2:
+                databaseReference1.orderByChild("idUsuario").startAt(idUsuario).endAt(idUsuario+"\uf8ff").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                        Publicaciones publicaciones = dataSnapshot.getValue(Publicaciones.class);
+                        adapterPerfilPersonalNegocios.addPublicacionesInicio(publicaciones);
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+                break;
+            case 3:
                 databaseReference2.orderByChild("idUsuario").startAt(idUsuario).endAt(idUsuario+"\uf8ff").addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                         Publicaciones publicaciones = dataSnapshot.getValue(Publicaciones.class);
-                        adapterPublicaciones.addPublicaciones(publicaciones);
+                        adapterPerfilPersonalNegocios.addPublicacionesInicio(publicaciones);
                     }
 
                     @Override
